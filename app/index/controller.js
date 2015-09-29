@@ -10,6 +10,9 @@ export default Ember.Controller.extend({
   isVirtualGalleriesStaticPermissionActive: false,
   isPredefinedRolesActive: false,
 
+  isStaticPermissionActive: false,
+  activeStaticPermissionName: '',
+
   resetActivePage: function() {
     setProperties(this, {
       isGeneralPermissionActive: false,
@@ -17,7 +20,10 @@ export default Ember.Controller.extend({
       isAllDataStaticPermissionActive: false,
       isAdminStaticPermissionActive: false,
       isVirtualGalleriesStaticPermissionActive: false,
-      isPredefinedRolesActive: false
+      isPredefinedRolesActive: false,
+
+      isStaticPermissionActive: false,
+      activeStaticPermissionName: '',
     });
   },
 
@@ -31,6 +37,10 @@ export default Ember.Controller.extend({
       this.resetActivePage();
       var normilizedName = ("" + name).camelize().capitalize();
       set(this, `is${normilizedName}StaticPermissionActive`, true);
+      setProperties(this, {
+        isStaticPermissionActive: true,
+        activeStaticPermissionName: name
+      });
     },
 
     openPredefinedRoles: function() {

@@ -12,6 +12,15 @@
         </ul>
     </div>
     <div class="col-md-10">
+        {{#if isGeneralPermissionActive}}
+          {{render 'general-permissions'}}
+        {{/if}}
+        {{#if isStaticPermissionActive}}
+          {{render 'static-permissions' activeStaticPermissionName}}
+        {{/if}}
+        {{#if isPredefinedRolesActive}}
+          {{render 'predefined-roles'}}
+        {{/if}}
       {{outlet}}
     </div>
 </div>
