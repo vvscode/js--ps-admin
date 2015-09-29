@@ -1,3 +1,8 @@
 .main-container {
-  margin-top: 40px;
+  margin-top: 75px;
+}
+
+.list-group .list-group-item.delimiter {
+  padding: 0;
+  border: 2px solid #ddd;
 }

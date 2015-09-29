@@ -1,28 +1,18 @@
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">PS Admin</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-
 <div class="container main-container">
-    <h1>Put content here</h1>
-  {{outlet}}
-
+    <div class="col-md-2">
+        <ul class="list-group general-permissions">
+            <li class="list-group-item {{if isGeneralPermissionActive 'active'}}" {{action 'openGeneralPermissions'}}>General Permissions</li>
+            <li class="list-group-item delimiter"></li>
+            <li class="list-group-item {{if isDefaultStaticPermissionActive 'active'}}" {{action 'openStaticPermission' 'default'}}>Default</li>
+            <li class="list-group-item {{if isAllDataStaticPermissionActive 'active'}}" {{action 'openStaticPermission' 'all_data'}}>All Data</li>
+            <li class="list-group-item {{if isAdminStaticPermissionActive 'active'}}" {{action 'openStaticPermission' 'admin'}}>Admin</li>
+            <li class="list-group-item {{if isVirtualGalleriesStaticPermissionActive 'active'}}" {{action 'openStaticPermission' 'virtual_galleries'}}>Virtual Galleries</li>
+            <li class="list-group-item delimiter"></li>
+            <li class="list-group-item {{if isPredefinedRolesActive 'active'}}" {{action 'openPredefinedRoles'}}>Predefined Roles</li>
+        </ul>
+    </div>
+    <div class="col-md-10">
+      {{outlet}}
+    </div>
 </div>
-</body>
 
