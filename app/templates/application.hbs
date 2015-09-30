@@ -12,14 +12,15 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
+                <li><a {{action 'saveSettings'}}>Save</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <div class="container main-container">
     <div class="col-md-2">
-        <ul class="list-group general-permissions">
-          {{#link-to 'general-permissions' class="list-group-item"}}General Permissions{{/link-to}}
+        <ul class="list-group main-menu">
+          {{#link-to 'general-permissions.index' class="list-group-item"}}General Permissions{{/link-to}}
           <li class="list-group-item delimiter"></li>
           {{#link-to 'static-permissions' 'default'  class="list-group-item"}}Default{{/link-to}}
           {{#link-to 'static-permissions' 'all_data'  class="list-group-item"}}All Data{{/link-to}}
@@ -30,7 +31,6 @@
         </ul>
     </div>
     <div class="col-md-10">
-
       {{outlet}}
     </div>
 </div>

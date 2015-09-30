@@ -1,0 +1,19 @@
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">Group properties</div>
+        <div class="panel-body">
+            {{input value=model.name}}
+          <hr />
+          {{#if model.length}}
+              <ul class="list-group general-permissions">
+                {{#each generalPermission in model}}
+                  {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
+                {{/each}}
+              </ul>
+          {{/if}}
+        </div>
+    </div>
+
+</div>
+
+{{outlet}}

@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('general-permissions',  { path: 'general-permissions' }, function() {
+    this.resource('general-permissions.edit', {path: '/:permission_id'})
   });
   this.resource('predefined-roles',  { path: 'predefined-roles' }, function() {
   });

@@ -1,0 +1,19 @@
+<div class="col-md-3 panel panel-default">
+    <div class="panel-heading">Groups
+    <button class="btn btn-default pull-right btn-xs" {{action 'addGeneralPermission'}}>
+        Add <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    </div>
+    <div class="panel-body">
+        {{#if model.length}}
+            <ul class="list-group general-permissions">
+                {{#each generalPermission in model}}
+                  {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
+                {{/each}}
+            </ul>
+        {{/if}}
+    </div>
+</div>
+<div class="col-md-9">
+    {{outlet}}
+</div>
