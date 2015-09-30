@@ -1,11 +1,14 @@
 import Ember from 'ember';
 
-var get = Ember.get;
+var get = Ember.get, set = Ember.set;
 
 export default Ember.Route.extend({
   model: function(params) {
     var settings = get(this, 'container').lookup('settings:main');
     var generalPermissions = get(settings, 'generalPermissions');
-    return generalPermissions.findBy('id', params.permission_id);
+    var model = generalPermissions.findBy('id', params.permission_id);
+    var permissions = get(model, 'permissions') || [];
+    set(model, 'permissions', permissions);
+    return model;
   }
 });

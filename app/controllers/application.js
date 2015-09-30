@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
       var settings = this.container.lookup('settings:main');
       var dataToSave = JSON.stringify(settings);
       localStorage.setItem(storageKey, dataToSave);
+      alert('Data saved');
     }
   }
 });

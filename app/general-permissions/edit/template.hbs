@@ -1,19 +1,35 @@
-<div class="col-md-4">
+<div class="col-md-5">
     <div class="panel panel-default">
         <div class="panel-heading">Group properties</div>
         <div class="panel-body">
             {{input value=model.name}}
-          <hr />
-          {{#if model.length}}
+            <button class="btn btn-default pull-right" {{action 'removeGeneralPermission' model}}><span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </div>
+    <hr />
+    <ul class="list-group general-permissions">
+      {{#link-to 'general-permissions.edit.group-resources'  class="list-group-item"}}Group Routes{{/link-to}}
+      {{#link-to 'general-permissions.edit.group-routes' class="list-group-item"}}Group Resources{{/link-to}}
+    </ul>
+    <hr />
+    <div class="panel panel-default">
+        <div class="panel-heading">Permissions
+            <button class="btn btn-default pull-right btn-xs" {{action 'addPermission'}}>
+                Add <span class="glyphicon glyphicon-plus"></span>
+            </button></div>
+        <div class="panel-body">
+          {{#if model.permissions.length}}
               <ul class="list-group general-permissions">
-                {{#each generalPermission in model}}
-                  {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
+                {{#each permission in model.permissions}}
+                  {{#link-to 'general-permissions.edit.permission' permission.id class="list-group-item"}}{{permission.name}}{{/link-to}}
                 {{/each}}
               </ul>
           {{/if}}
         </div>
     </div>
-
+</div>
+<div class="col-md-7">
+  {{outlet}}
 </div>
 
-{{outlet}}
