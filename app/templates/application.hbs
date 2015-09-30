@@ -16,4 +16,21 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-{{outlet}}
+<div class="container main-container">
+    <div class="col-md-2">
+        <ul class="list-group general-permissions">
+          {{#link-to 'general-permissions' class="list-group-item"}}General Permissions{{/link-to}}
+          <li class="list-group-item delimiter"></li>
+          {{#link-to 'static-permissions' 'default'  class="list-group-item"}}Default{{/link-to}}
+          {{#link-to 'static-permissions' 'all_data'  class="list-group-item"}}All Data{{/link-to}}
+          {{#link-to 'static-permissions' 'admin' class="list-group-item"}}Admin{{/link-to}}
+          {{#link-to 'static-permissions' 'virtual_galleries' class="list-group-item"}}Virtual Galleries{{/link-to}}
+          <li class="list-group-item delimiter"></li>
+          {{#link-to 'predefined-roles' class="list-group-item"}}Predefined Roles{{/link-to}}
+        </ul>
+    </div>
+    <div class="col-md-10">
+
+      {{outlet}}
+    </div>
+</div>
