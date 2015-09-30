@@ -4,8 +4,8 @@ var get = Ember.get;
 
 export default Ember.Controller.extend({
   uiSelectOptions: [
-    {label: 'Forced ON', id: 'forced_true'},
-    {label: 'Forced OFF', id: 'forced_false'},
-    {label: 'Defined by user', id: ''},
+    {label: 'Forced ON', id: 1},
+    {label: 'Forced OFF', id: -1},
+    {label: 'Defined by user', id: 0},
   ]
 });
