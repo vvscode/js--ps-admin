@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+    <div class="panel-heading">UI Checkboxes for <br />
+      "{{model.name}}"</div>
+    <div class="panel-body">
+        <label>View
+          {{view "select"
+            content=uiSelectOptions
+            optionValuePath="content.id"
+            optionLabelPath="content.label"
+            value=model.view
+            prompt="Select"
+          }}
+        </label><br />
+        <label>Add
+          {{view "select"
+            content=uiSelectOptions
+            optionValuePath="content.id"
+            optionLabelPath="content.label"
+            value=model.add
+            prompt="Select"
+          }}
+        </label><br />
+        <label>Edit
+          {{view "select"
+            content=uiSelectOptions
+            optionValuePath="content.id"
+            optionLabelPath="content.label"
+            value=model.edit
+            prompt="Select"
+          }}
+        </label><br />
+        <label>Delete
+          {{view "select"
+          content=uiSelectOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          value=model.delete
+          prompt="Select"
+          }}
+        </label>
+    </div>
+</div>

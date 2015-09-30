@@ -1,7 +1,7 @@
-<div class="col-md-5">
+<div class="no-padding col-md-5">
     <div class="panel panel-default">
         <div class="panel-heading">Group properties</div>
-        <div class="panel-body">
+        <div class="no-padding panel-body">
             {{input value=model.name}}
             <button class="btn btn-default pull-right" {{action 'removeGeneralPermission' model}}><span class="glyphicon glyphicon-remove"></span>
             </button>
@@ -18,18 +18,18 @@
             <button class="btn btn-default pull-right btn-xs" {{action 'addPermission'}}>
                 Add <span class="glyphicon glyphicon-plus"></span>
             </button></div>
-        <div class="panel-body">
+        <div class="no-padding panel-body">
           {{#if model.permissions.length}}
               <ul class="list-group general-permissions">
                 {{#each permission in model.permissions}}
-                  {{#link-to 'general-permissions.edit.permission' permission.id class="list-group-item"}}{{permission.name}}{{/link-to}}
+                  {{#link-to 'general-permissions.edit.permission' model.id permission.id class="list-group-item"}}{{permission.name}}{{/link-to}}
                 {{/each}}
               </ul>
           {{/if}}
         </div>
     </div>
 </div>
-<div class="col-md-7">
+<div class="no-padding col-md-7">
   {{outlet}}
 </div>
 

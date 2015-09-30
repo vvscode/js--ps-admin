@@ -1,0 +1,20 @@
+<div class="no-padding col-md-5">
+    <div class="panel panel-default">
+        <div class="panel-heading">Group properties</div>
+        <div class="no-padding panel-body">
+          {{input value=model.name}}<br />
+          <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br />
+          <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
+        </div>
+    </div>
+    <hr />
+    <ul class="list-group general-permissions">
+      {{#link-to 'general-permissions.edit.permission.ui-checkboxes'  class="list-group-item"}}UI Checkboxes{{/link-to}}
+      {{#link-to 'general-permissions.edit.permission.resources' class="list-group-item"}}Resources{{/link-to}}
+      {{#link-to 'general-permissions.edit.permission.routes' class="list-group-item"}}Routes{{/link-to}}
+    </ul>
+</div>
+<div class="no-padding col-md-7">
+  {{outlet}}
+</div>
+
