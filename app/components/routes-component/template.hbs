@@ -1,0 +1,32 @@
+<h3>Routes</h3>
+<button class="btn btn-sm" {{action 'setMultipleAddMode'}}>Search & Add</button>
+<button class="btn btn-sm" {{action 'setOneAddMode'}}>Add</button>
+{{#if addOneMode}}
+  {{input value=oneToAdd placeholder="Route name"}}<button {{action 'addOne'}}>Add</button>
+{{else}}
+  {{#if addMultipleMode}}
+    {{view "select"
+    content=listOfAllResources
+    optionValuePath="content.id"
+    optionLabelPath="content.label"
+    value=multipleAddFrom
+    prompt="From"
+    }}
+    {{view "select"
+    content=listOfAllResources
+    optionValuePath="content.id"
+    optionLabelPath="content.label"
+    value=multipleAddTo
+    prompt="To"
+    }}
+    <label>Depth: {{input value=addMultipleDepth type="number" placeholder="Depth" min="1"}}</label>
+    <button {{action 'addMultiple'}}>Search & Add</button>
+  {{/if}}
+{{/if}}
+
+
+{{#if listedRoutes.length}}<div class="list-of-routes">
+{{#each route in listedRoutes}}
+  <label>{{input type="checkbox" checked=route.checked}}{{route.label}}</label>
+{{/each}}
+</div>{{/if}}
