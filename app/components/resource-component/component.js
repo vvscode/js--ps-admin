@@ -5,8 +5,9 @@ import Utils from '../../utils/utils';
 var get = Ember.get, set = Ember.set;
 
 export default Ember.Component.extend({
-  resource: {},
-  resourcesList: null,
+  resource: null,
+  resourceList: null,
+  listOfAllResources: null,
   readFields: null,
   updateFields: null,
 
@@ -21,7 +22,7 @@ export default Ember.Component.extend({
 
   onInit: function() {
     API.getResourcesList().then(resources => {
-      set(this, 'resourcesList', resources.map(function(resourceName) {
+      set(this, 'listOfAllResources', resources.map(function(resourceName) {
         return {
           id: resourceName,
           label: Utils.humanize(resourceName).capitalize()
@@ -69,5 +70,11 @@ export default Ember.Component.extend({
 
   setResourceUpdate: function() {
     set(this, 'resource.update', get(this, 'updateFields').filterBy('checked', true).mapBy('id'));
+  },
+
+  actions: {
+    removeResource: function(){
+      get(this, 'resourceList').removeObject(get(this, 'resource'));
+    }
   }
 });
