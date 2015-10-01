@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import API from '../../utils/api';
 import Utils from '../../utils/utils';
 

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+
 
 var storageKey = 'settingsMain';
 

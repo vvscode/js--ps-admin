@@ -1,4 +1,4 @@
-import Ember from 'ember';
+
 
 var setProperties = Ember.setProperties, set = Ember.set, get = Ember.get;
 
