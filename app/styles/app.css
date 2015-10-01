@@ -7,6 +7,6 @@
   border: 2px solid #ddd;
 }
 
-.no-padding {
-  padding: 0;
+.small-padding {
+  padding: 5px;
 }

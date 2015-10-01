@@ -5,8 +5,9 @@
             Add <span class="glyphicon glyphicon-plus"></span>
         </button>
     </div>
-    <div class="panel-body">
-      {{#each resource in model}}
+  {{#if model.length}}
+      <div class="panel-body">
+        {{#each resource in model}}
           {{view "select"
           content=resourcesList
           optionValuePath="content.id"
@@ -14,8 +15,8 @@
           value=resource.name
           prompt="Select"
           }}
-
-        <hr />
-      {{/each}}
-    </div>
+            <hr />
+        {{/each}}
+      </div>
+  {{/if}}
 </div>

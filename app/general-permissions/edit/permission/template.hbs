@@ -1,7 +1,7 @@
-<div class="no-padding col-md-5">
+<div class="small-padding col-md-5">
     <div class="panel panel-default">
         <div class="panel-heading">Group properties</div>
-        <div class="no-padding panel-body">
+        <div class="small-padding panel-body">
           {{input value=model.name}}<br />
           <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br />
           <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
@@ -14,7 +14,7 @@
       {{#link-to 'general-permissions.edit.permission.routes' class="list-group-item"}}Routes{{/link-to}}
     </ul>
 </div>
-<div class="no-padding col-md-7">
+<div class="small-padding col-md-7">
   {{outlet}}
 </div>
 
