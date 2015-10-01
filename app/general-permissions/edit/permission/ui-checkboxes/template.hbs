@@ -1,42 +1,51 @@
 <div class="panel panel-default">
-    <div class="panel-heading">UI Checkboxes for <br />
-      "{{model.name}}"</div>
-    <div class="panel-body">
-        <label>View
+    <div class="panel-heading">UI Checkboxes for <br/>
+        "{{model.name}}"
+    </div>
+    <div class="panel-body small-padding">
+        <div class="col-md-12 small-padding">
+            <label class="col-md-5 small-padding">View</label>
           {{view "select"
-            content=uiSelectOptions
-            optionValuePath="content.id"
-            optionLabelPath="content.label"
-            value=model.read
-            prompt="Select"
+          content=uiSelectOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          value=model.read
+          prompt="Select"
+          class="col-md-7"
           }}
-        </label><br />
-        <label>Add
+        </div>
+        <div class="col-md-12 small-padding">
+            <label class="col-md-5 small-padding">Add</label>
           {{view "select"
-            content=uiSelectOptions
-            optionValuePath="content.id"
-            optionLabelPath="content.label"
-            value=model.create
-            prompt="Select"
+          content=uiSelectOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          value=model.create
+          prompt="Select"
+          class="col-md-7"
           }}
-        </label><br />
-        <label>Edit
+        </div>
+        <div class="col-md-12 small-padding">
+            <label class="col-md-5 small-padding">Edit</label>
           {{view "select"
-            content=uiSelectOptions
-            optionValuePath="content.id"
-            optionLabelPath="content.label"
-            value=model.update
-            prompt="Select"
+          content=uiSelectOptions
+          optionValuePath="content.id"
+          optionLabelPath="content.label"
+          value=model.update
+          prompt="Select"
+          class="col-md-7"
           }}
-        </label><br />
-        <label>Delete
+        </div>
+        <div class="col-md-12 small-padding">
+            <label class="col-md-5 small-padding">Delete</label>
           {{view "select"
           content=uiSelectOptions
           optionValuePath="content.id"
           optionLabelPath="content.label"
           value=model.delete
           prompt="Select"
+          class="col-md-7"
           }}
-        </label>
+        </div>
     </div>
 </div>

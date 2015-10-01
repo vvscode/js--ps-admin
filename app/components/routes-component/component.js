@@ -73,7 +73,14 @@ export default Ember.Component.extend({
 
   actions: {
     addMultiple: function() {
-
+      API
+        .getRoutesList(get(this, 'multipleAddFrom'), get(this, 'multipleAddTo'), get(this, 'addMultipleDepth'))
+        .then(routes => {
+          this.resetAddForms();
+          routes.forEach(routeName => {
+            this.addRoute(routeName, false);
+          });
+        });
     },
     addOne: function() {
       var oneToAdd = get(this, 'oneToAdd');

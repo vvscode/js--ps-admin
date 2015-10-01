@@ -1,13 +1,15 @@
 <div class="small-padding col-md-5">
     <div class="panel panel-default">
-        <div class="panel-heading">Group properties</div>
+        <div class="panel-heading">Permission properties</div>
         <div class="small-padding panel-body">
-          {{input value=model.name}}<br />
-          <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br />
-          <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
+            <div class="input-group">
+              {{input value=model.name class="col-md-12" required="true"}}<br/>
+              <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br/>
+              <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
+            </div>
         </div>
     </div>
-    <hr />
+    <hr/>
     <ul class="list-group general-permissions">
       {{#link-to 'general-permissions.edit.permission.ui-checkboxes'  class="list-group-item"}}UI Checkboxes{{/link-to}}
       {{#link-to 'general-permissions.edit.permission.resources' class="list-group-item"}}Resources{{/link-to}}

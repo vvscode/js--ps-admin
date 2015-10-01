@@ -1,10 +1,12 @@
 <div class="small-padding col-md-5">
     <div class="panel panel-default">
-        <div class="panel-heading">Group properties</div>
-        <div class="small-padding panel-body">
-            {{input value=model.name}}
-            <button class="btn btn-default pull-right" {{action 'removeGeneralPermission' model}}><span class="glyphicon glyphicon-remove"></span>
+        <div class="panel-heading">Group properties
+            <button class="btn btn-default pull-right btn-xs" title="Remove group" {{action 'removeGeneralPermission' model}}>
+                Remove <span class="glyphicon glyphicon-remove"></span>
             </button>
+        </div>
+        <div class="small-padding panel-body">
+            {{input value=model.name class="col-md-12"}}
         </div>
     </div>
     <hr />

@@ -1,2 +1,16 @@
-Group resources
-{{outlet}}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Resources
+        <button class="btn btn-default pull-right btn-xs" {{action 'addResource'}}>
+            Add <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </div>
+  {{#if model.length}}
+      <div class="panel-body">
+        {{#each resource in model}}
+          {{resource-component resource=resource resourceList=model}}
+            <hr />
+        {{/each}}
+      </div>
+  {{/if}}
+</div>
