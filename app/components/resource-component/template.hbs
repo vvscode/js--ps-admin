@@ -1,0 +1,18 @@
+{{view "select"
+content=resourcesList
+optionValuePath="content.id"
+optionLabelPath="content.label"
+value=resource.name
+prompt="Select"
+}}
+
+{{#if readFields.length}}<h4>Read</h4><div class="read-fields">
+  {{#each item in readFields}}
+    <label>{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
+  {{/each}}
+</div>{{/if}}
+{{#if updateFields.length}}<h4>Update</h4><div class="update-fields">
+  {{#each item in updateFields}}
+      <label>{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
+  {{/each}}
+</div>{{/if}}

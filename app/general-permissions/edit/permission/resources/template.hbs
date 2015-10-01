@@ -8,13 +8,7 @@
   {{#if model.length}}
       <div class="panel-body">
         {{#each resource in model}}
-          {{view "select"
-          content=resourcesList
-          optionValuePath="content.id"
-          optionLabelPath="content.label"
-          value=resource.name
-          prompt="Select"
-          }}
+            {{resource-component resource=resource}}
             <hr />
         {{/each}}
       </div>
