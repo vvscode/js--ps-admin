@@ -1,11 +1,11 @@
-<div class="small-padding col-md-5">
+<div class="small-padding col-md-2">
     <div class="panel panel-default">
-        <div class="panel-heading">Permission properties</div>
+        <div class="panel-heading small-padding">Permission properties</div>
         <div class="small-padding panel-body">
             <div class="input-group">
               {{input value=model.name class="col-md-12" required="true"}}<br/>
-              <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br/>
-              <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
+                <label>{{input type="checkbox" checked=model.isCustomField}} Is custom field </label><br/>
+                <label>{{input type="checkbox" checked=model.isVirtualGallery}} Show in virtual gallery</label>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
       {{#link-to 'general-permissions.edit.permission.routes' class="list-group-item"}}Routes{{/link-to}}
     </ul>
 </div>
-<div class="small-padding col-md-7">
+<div class="small-padding col-md-4">
   {{outlet}}
 </div>
 

@@ -1,19 +1,17 @@
-<div class="small-padding col-md-3 panel panel-default">
-    <div class="panel-heading">Groups
-    <button class="btn btn-default pull-right btn-xs" {{action 'addGeneralPermission'}}>
-        Add <span class="glyphicon glyphicon-plus"></span>
-    </button>
+<div class="null-padding col-md-2 panel panel-default">
+    <div class="panel-heading small-padding">Groups
+        <button class="btn btn-default pull-right btn-xs" {{action 'addGeneralPermission'}}>
+            Add <span class="glyphicon glyphicon-plus"></span>
+        </button>
     </div>
-    {{#if model.length}}
+  {{#if model.length}}
       <div class="small-padding panel-body">
           <ul class="list-group general-permissions">
-              {{#each generalPermission in model}}
-                {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
-              {{/each}}
+            {{#each generalPermission in model}}
+              {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
+            {{/each}}
           </ul>
       </div>
-    {{/if}}
+  {{/if}}
 </div>
-<div class="small-padding col-md-9">
-    {{outlet}}
-</div>
+{{outlet}}

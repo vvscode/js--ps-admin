@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading small-padding">
         Resources
         <button class="btn btn-default pull-right btn-xs" {{action 'addResource'}}>
             Add <span class="glyphicon glyphicon-plus"></span>
@@ -9,7 +9,7 @@
       <div class="panel-body">
         {{#each resource in model}}
           {{resource-component resource=resource resourceList=model}}
-            <hr />
+            <hr/>
         {{/each}}
       </div>
   {{/if}}

@@ -20,7 +20,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-      'connect-src': "'self'",
+      'connect-src': "'self' admin-ps.collectriumdev.com",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'"
     }

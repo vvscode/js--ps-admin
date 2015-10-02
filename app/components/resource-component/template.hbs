@@ -6,13 +6,15 @@ value=resource.name
 prompt="Select"
 }}
 
-{{#if readFields.length}}<h4>Read</h4><div class="read-fields">
+{{#if readFields.length}}<h4>Read</h4>
+<div class="read-fields clearfix">
   {{#each item in readFields}}
-    <label class="checkbox-label">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
+      <label class="col-md-6">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
   {{/each}}
 </div>{{/if}}
-{{#if updateFields.length}}<h4>Update</h4><div class="update-fields">
+{{#if updateFields.length}}<h4>Update</h4>
+<div class="update-fields clearfix">
   {{#each item in updateFields}}
-      <label class="checkbox-label">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
+      <label class="col-md-6">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
   {{/each}}
 </div>{{/if}}

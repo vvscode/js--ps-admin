@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   readFields: null,
   updateFields: null,
 
-  checkResourceOnInit: function() { // todo: remove/discuss after finalize developing
+  checkResourceOnInit: function () { // todo: remove/discuss after finalize developing
     if(!get(this, 'resource.read')) {
       set(this, 'resource.read', []);
     }
@@ -19,9 +19,9 @@ export default Ember.Component.extend({
     }
   }.on('init'),
 
-  onInit: function() {
+  onInit: function () {
     API.getResourcesList().then(resources => {
-      set(this, 'listOfAllResources', resources.map(function(resourceName) {
+      set(this, 'listOfAllResources', resources.map(function (resourceName) {
         return {
           id: resourceName,
           label: Utils.humanize(resourceName).capitalize()
@@ -30,14 +30,14 @@ export default Ember.Component.extend({
     });
   }.on('init'),
 
-  onResourceNameChange: function() {
+  onResourceNameChange: function () {
     API.getResourceFieldsList(get(this, 'resource.name')).then(fieldsNames => {
       var readFields = [];
       var updateFields = [];
 
       var resourceRead = get(this, 'resource.read');
       var resourceUpdate = get(this, 'resource.update');
-      fieldsNames.forEach(function(fieldName) {
+      fieldsNames.forEach(function (fieldName) {
         readFields.addObject({
           id: fieldName,
           label: Utils.humanize(fieldName),
@@ -55,24 +55,24 @@ export default Ember.Component.extend({
     });
   }.observes('resource.name').on('init'),
 
-  readObserver: function() {
+  readObserver: function () {
     Ember.run.once(this, this.setResourceRead);
   }.observes('readFields.@each.checked'),
 
-  updateObserver: function() {
+  updateObserver: function () {
     Ember.run.once(this, this.setResourceUpdate);
   }.observes('updateFields.@each.checked'),
 
-  setResourceRead: function() {
+  setResourceRead: function () {
     set(this, 'resource.read', get(this, 'readFields').filterBy('checked', true).mapBy('id'));
   },
 
-  setResourceUpdate: function() {
+  setResourceUpdate: function () {
     set(this, 'resource.update', get(this, 'updateFields').filterBy('checked', true).mapBy('id'));
   },
 
   actions: {
-    removeResource: function(){
+    removeResource: function () {
       get(this, 'resourceList').removeObject(get(this, 'resource'));
     }
   }

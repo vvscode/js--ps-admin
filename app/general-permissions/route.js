@@ -1,10 +1,10 @@
-
-
-var get = Ember.get;
+var get = Ember.get, set = Ember.set;
 
 export default Ember.Route.extend({
-  model: function() {
+  model: function () {
     var settings = get(this, 'container').lookup('settings:main');
-    return get(settings, 'generalPermissions');
+    var generalPermissions = get(settings, 'generalPermissions') || [];
+    set(settings, 'generalPermissions', generalPermissions);
+    return generalPermissions;
   }
 });

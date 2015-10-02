@@ -1,5 +1,3 @@
-
-
 var get = Ember.get;
 
 export default Ember.Controller.extend({

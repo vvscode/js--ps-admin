@@ -2,7 +2,7 @@ var get = Ember.get;
 
 export default Ember.Controller.extend({
   actions: {
-    addResource: function() {
+    addResource: function () {
       get(this, 'model').addObject({});
     }
   }
