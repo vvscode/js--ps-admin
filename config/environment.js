@@ -16,6 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      USE_MOCKS: true
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
@@ -47,7 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.USE_MOCKS = false;
   }
 
   return ENV;

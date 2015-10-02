@@ -16,7 +16,7 @@ Router.map(function () {
         this.route('resources', {path: '/resources'});
         this.route('routes', {path: '/routes'});
       });
-    })
+    });
   });
   this.resource('predefined-roles', {path: 'predefined-roles'}, function () {
   });

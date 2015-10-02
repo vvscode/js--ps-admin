@@ -23,7 +23,7 @@ export default Ember.Component.extend({
         return {
           id: resourceName,
           label: Utils.humanize(resourceName).capitalize()
-        }
+        };
       }));
     });
 
@@ -39,7 +39,7 @@ export default Ember.Component.extend({
         id: item,
         label: item,
         checked: routes.contains(item)
-      }
+      };
     }));
   }.observes('listOfAllLoadedRoutes.length').on('init'),
 

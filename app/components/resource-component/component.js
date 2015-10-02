@@ -25,7 +25,7 @@ export default Ember.Component.extend({
         return {
           id: resourceName,
           label: Utils.humanize(resourceName).capitalize()
-        }
+        };
       }));
     });
   }.on('init'),

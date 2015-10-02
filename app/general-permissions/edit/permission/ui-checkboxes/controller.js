@@ -1,5 +1,3 @@
-var get = Ember.get;
-
 export default Ember.Controller.extend({
   uiSelectOptions: [
     {label: 'Forced ON', id: 1},

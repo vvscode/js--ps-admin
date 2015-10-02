@@ -1,4 +1,4 @@
-var setProperties = Ember.setProperties, set = Ember.set, get = Ember.get;
+var setProperties = Ember.setProperties, set = Ember.set;
 
 export default Ember.Controller.extend({
   isGeneralPermissionActive: false,
