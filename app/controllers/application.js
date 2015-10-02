@@ -1,12 +1,13 @@
-var storageKey = 'settingsMain';
+import API from './../utils/api';
 
 export default Ember.Controller.extend({
   actions: {
     saveSettings: function () {
-      var settings = this.container.lookup('settings:main');
-      var dataToSave = JSON.stringify(settings);
-      localStorage.setItem(storageKey, dataToSave);
-      alert('Data saved');
+      API
+        .saveData(this.container.lookup('settings:main'))
+        .then(() => {
+          alert('Data saved');
+        });
     }
   }
 });
