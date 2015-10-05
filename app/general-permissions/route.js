@@ -3,7 +3,7 @@ var get = Ember.get, set = Ember.set;
 export default Ember.Route.extend({
   model: function () {
     var settings = get(this, 'container').lookup('settings:main');
-    var generalPermissions = get(settings, 'generalPermissions') || [];
+    var generalPermissions = get(settings, 'generalPermissions.groups') || [];
     set(settings, 'generalPermissions', generalPermissions);
     return generalPermissions;
   }

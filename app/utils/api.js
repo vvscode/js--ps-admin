@@ -48,8 +48,13 @@ export default {
       }, 1000);
       return dfd.promise();
     } else {
-      var dataToSave = data.generalPermissions;
-      return $.post('/general_persmissions/', dataToSave, 'json');
+      var dataToSave =  { groups: data.generalPermissions };
+      var url = '/general_permissions/';
+      return $.ajax(url, {
+        data: JSON.stringify(dataToSave),
+        contentType: 'application/json',
+        type: 'POST'
+      });
     }
   }
 };
