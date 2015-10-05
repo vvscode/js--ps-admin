@@ -12,8 +12,16 @@ export default Ember.Controller.extend({
     addPermission: function () {
       var model = get(this, 'model');
       model.permissions.addObject({
-        name: 'New Permission',
-        id: "" + Date.now()
+        field: 'New Permission',
+        key: "" + Date.now(),
+        resources: [],
+        routes: [],
+        is_custom_field: false,
+        for_sharing: false,
+        create: 0,
+        read: 0,
+        update: 0,
+        delete: 0
       });
     }
   }

@@ -1,1 +1,5 @@
-<h1>Static Permissions for {{currentStaticPermission.type_name}}</h1>
+<ul class="list-group general-permissions col-md-2">
+  {{#link-to 'static-permissions.resources'  class="list-group-item"}}Group Resources{{/link-to}}
+  {{#link-to 'static-permissions.routes' class="list-group-item"}}Group Routes{{/link-to}}
+</ul>
+{{outlet}}

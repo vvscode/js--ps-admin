@@ -21,6 +21,8 @@ Router.map(function () {
   this.resource('predefined-roles', {path: 'predefined-roles'}, function () {
   });
   this.resource('static-permissions', {path: 'static-permissions/:type_name'}, function () {
+    this.route('resources', {path: '/resources'});
+    this.route('routes', {path: '/routes'});
   });
 });
 

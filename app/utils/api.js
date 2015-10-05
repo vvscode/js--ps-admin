@@ -31,11 +31,22 @@ export default {
       return dfd.promise();
     } else {
       var url = '/general_permissions/';
-      return $.get(url).then(function(data) {
-        return {
-          generalPermissions: data
-        };
-      });
+      var loadedData = {};
+      return $.get(url)
+        .then(function(data) {
+          loadedData.generalPermissions= data;
+          return $.get('/default_permissions/');
+        })
+        .then(function(data) {
+          loadedData.default_permission = data;
+          return $.get('/flags_permissions/');
+        })
+        .then(function(data){
+          loadedData.flags = data.flags || [];
+
+          console.log(loadedData);
+          return loadedData;
+        });
     }
   },
   saveData: function(data) {
@@ -48,12 +59,33 @@ export default {
       }, 1000);
       return dfd.promise();
     } else {
-      var dataToSave =  { groups: data.generalPermissions };
+      // save general permisssions
+      var dataToSave = { groups: data.generalPermissions };
       var url = '/general_permissions/';
       return $.ajax(url, {
         data: JSON.stringify(dataToSave),
         contentType: 'application/json',
         type: 'POST'
+      })
+      // save default permissions
+      .then(function() {
+        var dataToSave = data.default_permission;
+        var url = '/default_permissions/'
+        return $.ajax(url, {
+          data: JSON.stringify(dataToSave),
+          contentType: 'application/json',
+          type: 'POST'
+        });
+      })
+      // save flag settings
+      .then(function() {
+        var dataToSave = { flags: data.flags };
+        var url = '/flags_permissions/';
+        return $.ajax(url, {
+          data: JSON.stringify(dataToSave),
+          contentType: 'application/json',
+          type: 'POST'
+        });
       });
     }
   }

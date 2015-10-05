@@ -5,7 +5,10 @@ export default Ember.Controller.extend({
     addGeneralPermission: function () {
       get(this, 'model').addObject({
         name: 'New General Permission',
-        id: "" + Date.now()
+        id: "" + Date.now(),
+        resources: [],
+        routes: [],
+        permissions: []
       });
     }
   }
