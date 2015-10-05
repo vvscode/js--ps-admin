@@ -8,7 +8,8 @@ export default Ember.Route.extend({
     if(flagName === 'default') {
       return get(settings, 'default_permission');
     } else {
-      var flags = get(settings, 'flags');
+      var flags = get(settings, 'flags') || [];
+      set(settings, 'flags', flags);
       var flagSettings = flags.findBy('name', flagName);
       if(!flagSettings) {
         flagSettings = {

@@ -1,1 +1,17 @@
-<h1>Predefined Roles</h1>
+<div class="null-padding col-md-2 panel panel-default">
+    <div class="panel-heading small-padding">Roles
+        <button class="btn btn-default pull-right btn-xs" {{action 'addRoleTemplate'}}>
+            Add <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </div>
+  {{#if model.length}}
+      <div class="small-padding panel-body">
+          <ul class="list-group general-permissions">
+            {{#each role in model}}
+              {{#link-to 'predefined-roles.edit' role.key class="list-group-item"}}{{role.name}}{{/link-to}}
+            {{/each}}
+          </ul>
+      </div>
+  {{/if}}
+</div>
+{{outlet}}

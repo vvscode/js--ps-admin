@@ -1,0 +1,35 @@
+<div class="form-group">
+    <label class="col-md-6">{{input type="checkbox" checked=role.is_admin }} Is Admin</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.is_all_data}} Is All Data</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.is_sharing disabled="true"}} Is Sharing</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.is_predefined disabled="true"}} Is Predefined</label>
+</div>
+{{#each group in groups}}
+    <h3 class="col-md-4">{{group.name}}</h3>
+    <h4 class="col-md-2">Create</h4>
+    <h4 class="col-md-2">Read</h4>
+    <h4 class="col-md-2">Update</h4>
+    <h4 class="col-md-2">Delete</h4>
+    {{#each permission in group.permissions}}
+        <div class="col-md-12">
+            <span class="col-md-4">
+              {{permission.field}}
+            </span>
+
+            <div class="col-md-2">
+              {{input type="checkbox" checked=permission.create disabled=permission._create }}
+            </div>
+            <div class="col-md-2">
+              {{input type="checkbox" checked=permission.read disabled=permission._read }}
+            </div>
+            <div class="col-md-2">
+              {{input type="checkbox" checked=permission.update disabled=permission._update }}
+            </div>
+            <div class="col-md-2">
+              {{input type="checkbox" checked=permission.delete disabled=permission._delete }}
+            </div>
+        </div>
+    {{/each}}
+{{/each}}
+
+

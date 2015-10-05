@@ -19,6 +19,9 @@ Router.map(function () {
     });
   });
   this.resource('predefined-roles', {path: 'predefined-roles'}, function () {
+    this.resource('predefined-roles.edit', {path: ':template_key'}, function() {
+
+    });
   });
   this.resource('static-permissions', {path: 'static-permissions/:type_name'}, function () {
     this.route('resources', {path: '/resources'});
