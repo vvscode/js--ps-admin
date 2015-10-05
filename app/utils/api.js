@@ -7,7 +7,7 @@ var storageKey = 'settingsMain';
 
 export default {
   getResourcesList: function () {
-    var url = USE_MOCKS? '/api_mocks/resources.json' : '/resources';
+    var url = USE_MOCKS? '/api_mocks/resources.json' : '/resources/';
     return cache['getResourcesList'] || ( cache['getResourcesList'] = $.get(url) );
   },
   getRoutesList: function (from, to, depth) {
@@ -16,7 +16,7 @@ export default {
   },
   getResourceFieldsList: function (resourceName) {
     var cacheName = 'getResourceFieldsList_' + resourceName;
-    var url = USE_MOCKS? '/api_mocks/fields_for_group.json' : '/resources/fields';
+    var url = USE_MOCKS? '/api_mocks/fields_for_group.json' : '/resource_fields/?resource=' + resourceName;
     return cache[cacheName] || ( cache[cacheName] = $.get(url) );
   },
   loadData: function() {
@@ -30,8 +30,12 @@ export default {
       }, 1000);
       return dfd.promise();
     } else {
-      var url = '/data';
-      return $.get(url);
+      var url = '/general_permissions/';
+      return $.get(url).then(function(data) {
+        return {
+          generalPermissions: data
+        };
+      });
     }
   },
   saveData: function(data) {
@@ -44,7 +48,8 @@ export default {
       }, 1000);
       return dfd.promise();
     } else {
-      return $.post('/save_settings', data);
+      var dataToSave = data.generalPermissions;
+      return $.post('/general_persmissions/', dataToSave, 'json');
     }
   }
 };
