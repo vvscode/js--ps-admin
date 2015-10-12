@@ -17,16 +17,16 @@
             </span>
 
             <div class="col-md-2">
-              {{input type="checkbox" checked=permission.create disabled=permission._create }}
+              {{input type="checkbox" checked=permission.create disabled=permission.create_forced }}
             </div>
             <div class="col-md-2">
-              {{input type="checkbox" checked=permission.read disabled=permission._read }}
+              {{input type="checkbox" checked=permission.read disabled=permission.read_forced }}
             </div>
             <div class="col-md-2">
-              {{input type="checkbox" checked=permission.update disabled=permission._update }}
+              {{input type="checkbox" checked=permission.update disabled=permission.update_forced }}
             </div>
             <div class="col-md-2">
-              {{input type="checkbox" checked=permission.delete disabled=permission._delete }}
+              {{input type="checkbox" checked=permission.delete disabled=permission.delete_forced }}
             </div>
         </div>
     {{/each}}

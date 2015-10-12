@@ -24,7 +24,7 @@
           <div class="small-padding panel-body">
               <ul class="list-group general-permissions">
                 {{#each permission in model.permissions}}
-                  {{#link-to 'general-permissions.edit.permission' model.id permission.key class="list-group-item"}}{{permission.field}}{{/link-to}}
+                  {{#link-to 'general-permissions.edit.permission' model.id permission.id class="list-group-item"}}{{permission.field}}{{/link-to}}
                 {{/each}}
               </ul>
           </div>

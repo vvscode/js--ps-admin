@@ -14,6 +14,7 @@ export default {
           retData.addObject({
             field: permission.field,
             key: permission.key,
+            id: permission.id || permission.key,
             group: group.name,
             create: permission.create,
             read: permission.read,
@@ -118,7 +119,7 @@ export default {
         var dataToSave = data.generalPermissions;
         var url = '/general_permissions/';
         return $.ajax(url, {
-          data: JSON.stringify(dataToSave),
+          data: JSON.stringify({ groups: dataToSave}),
           contentType: 'application/json',
           type: 'POST'
         });

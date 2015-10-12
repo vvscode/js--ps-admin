@@ -3,7 +3,8 @@
         <div class="panel-heading small-padding">Permission properties</div>
         <div class="small-padding panel-body">
             <div class="input-group">
-              {{input value=model.field class="col-md-12" required="true"}}<br/>
+              <label class="col-md-4">Field:</label>{{input value=model.field class="col-md-8" required="true"}}<br/>
+                <label class="col-md-4">Key:</label>{{input value=model.key class="col-md-8" required="true"}}<br/>
                 <label>{{input type="checkbox" checked=model.is_custom_field}} Is custom field </label><br/>
                 <label>{{input type="checkbox" checked=model.for_sharing}} Show in virtual gallery</label>
             </div>

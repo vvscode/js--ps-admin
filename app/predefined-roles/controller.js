@@ -26,13 +26,13 @@ export default Ember.Controller.extend({
             field: permission.field,
             key: permission.key,
             group: permission.group,
-            _create: permission.create,
+            create_forced: permission.create,
             create: false,
-            _read: permission.read,
+            read_forced: permission.read,
             read: false,
-            _update: permission.update,
+            update_forced: permission.update,
             update: false,
-            _delete: permission.delete,
+            delete_forced: permission.delete,
             delete: false
           });
         });
