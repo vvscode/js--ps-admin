@@ -24,7 +24,7 @@ export default {
         });
       });
       var dfd = $.Deferred();
-      dfd.resolve(retData);
+      dfd.resolve({groups: retData});
       return dfd.promise();
     });
   },
@@ -68,7 +68,7 @@ export default {
           return $.get('/flags_permissions/');
         })
         .then(function(data) {
-          loadedData.flags = data;
+          loadedData.flags = data.flags;
           return $.get('/role_templates/');
         })
         .then(function(data){
