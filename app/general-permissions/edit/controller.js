@@ -1,6 +1,15 @@
+import API from 'ps-admin/utils/api';
 var get = Ember.get;
 
 export default Ember.Controller.extend({
+  observeChanges: function() {
+    Ember.run.debounce(this, this.saveModel, 500);
+  }.observes('model.name'),
+
+  saveModel: function() {
+    API.saveGroup(get(this, 'model'));
+  },
+
   actions: {
     removeGeneralPermission: function (generalPermission) {
       var settings = get(this, 'container').lookup('settings:main');

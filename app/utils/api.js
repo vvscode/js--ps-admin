@@ -5,6 +5,20 @@ var USE_MOCKS = !! config.APP.USE_MOCKS;
 var cache = {};
 var storageKey = 'settingsMain';
 
+function getFlatPartOfModel(data) {
+  var ret = {};
+  Object.keys(data).forEach(function(key) {
+    if(typeof data[key] !== 'object') {
+      ret[key] =  data[key];
+    }
+  });
+  return ret;
+}
+
+function getUpdateModelUrl(name, data) {
+  return "" + name + "/" + data.id;
+}
+
 export default {
   getPermissions: function() {
     return this.getGeneralPermissions().then((data) => {
@@ -42,8 +56,8 @@ export default {
     return cache[cacheName] || ( cache[cacheName] = $.get(url) );
   },
   getGeneralPermissions: function() {
-    var url = USE_MOCKS ? '/api_mocks/general_permissions.json' : '/general_permissions/';
-    var cacheName = 'general_permissions';
+    var url = USE_MOCKS ? '/api_mocks/general_permissions.json' : '/groups/';
+    var cacheName = 'groups';
     return cache[cacheName] || ( cache[cacheName] = $.get(url) );
   },
   loadData: function() {
@@ -59,17 +73,18 @@ export default {
     } else {
       var loadedData = {};
       return this.getGeneralPermissions()
+        //.then(function(data) {
+        //  loadedData.generalPermissions= data;
+        //  return $.get('/default_permissions/');
+        //})
         .then(function(data) {
           loadedData.generalPermissions= data;
-          return $.get('/default_permissions/');
-        })
-        .then(function(data) {
           loadedData.default_permission = data;
-          return $.get('/flags_permissions/');
+          return $.get('/flag_permissions/');
         })
         .then(function(data) {
           loadedData.flags = data.flags;
-          return $.get('/role_templates/');
+          return $.get('/templates/');
         })
         .then(function(data){
           loadedData.templates = data.templates || [];
@@ -99,7 +114,7 @@ export default {
       // save flag settings
       .then(function() {
         var dataToSave = data.flags;
-        var url = '/flags_permissions/';
+        var url = '/flag_permissions/';
         return $.ajax(url, {
           data: JSON.stringify(dataToSave),
           contentType: 'application/json',
@@ -108,7 +123,7 @@ export default {
       })
       .then(function() {
         var dataToSave = { templates: data.templates || []};
-        var url = '/role_templates/';
+        var url = '/templates/';
         return $.ajax(url, {
           data: JSON.stringify(dataToSave),
           contentType: 'application/json',
@@ -117,7 +132,7 @@ export default {
       })
       .then(function() {
         var dataToSave = data.generalPermissions;
-        var url = '/general_permissions/';
+        var url = '/groups/';
         return $.ajax(url, {
           data: JSON.stringify({ groups: dataToSave}),
           contentType: 'application/json',
@@ -130,5 +145,35 @@ export default {
           return dfd.promise();
       });
     }
+  },
+
+  saveGroup: function(model) {
+    return this.updateModel('group', model);
+  },
+
+  saveResource: function(model) {
+    return this.updateModel('resource', model);
+  },
+
+  saveRoute: function(model) {
+    return this.updateModel('route', model);
+  },
+
+  savePermission: function(model) {
+    return this.updateModel('permisssion', model);
+  },
+
+  updateModel: function(name, data) {
+    var flatData =  getFlatPartOfModel(model);
+    var id = flatData.id;
+    delete flatData.id;
+    console.info('updateModel', name, id, flatData);
+
+    var url = getUpdateModelUrl(name, data);
+    return $.ajax({
+      data: JSON.stringify(flatData),
+      contentType: 'application/json',
+      type: 'POST'
+    });
   }
 };
