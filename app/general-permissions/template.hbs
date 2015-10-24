@@ -7,8 +7,11 @@
   {{#if model.length}}
       <div class="small-padding panel-body">
           <ul class="list-group general-permissions">
-            {{#each generalPermission in model}}
-              {{#link-to 'general-permissions.edit' generalPermission.id class="list-group-item"}}{{generalPermission.name}}{{/link-to}}
+            {{#each group in model}}
+              {{#link-to 'general-permissions.edit' group.id class="list-group-item"}}
+                {{group.title}}
+                  <button type="button" class="remove-group btn btn-default btn-xs" {{action 'removeGroup' group bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              {{/link-to}}
             {{/each}}
           </ul>
       </div>

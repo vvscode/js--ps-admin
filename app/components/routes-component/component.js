@@ -1,5 +1,5 @@
-import API from '../../utils/api';
 import Utils from '../../utils/utils';
+import API from '../../utils/api';
 
 var get = Ember.get, set = Ember.set;
 
@@ -18,7 +18,7 @@ export default Ember.Component.extend({
   addMultipleMode: null,
 
   onInit: function () {
-    API.getResourcesList().then(resources => {
+    API.getResources().then(resources => {
       set(this, 'listOfAllResources', resources.map(function (resourceName) {
         return {
           id: resourceName,

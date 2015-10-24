@@ -1,4 +1,3 @@
-import API from '../utils/api';
 var get = Ember.get;
 
 export default Ember.Controller.extend({
@@ -19,7 +18,7 @@ export default Ember.Controller.extend({
         is_predefined: true,
         permissions: []
       };
-      API.getPermissions().then((data) => {
+      this.API.getPermissions().then((data) => {
         var permissions = roleTemplate.permissions;
         (data || []).forEach((permission) => {
           permissions.addObject({
