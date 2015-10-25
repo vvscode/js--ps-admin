@@ -1,5 +1,5 @@
-import API from '../../utils/api';
 import Utils from '../../utils/utils';
+import API from '../../utils/api';
 
 var get = Ember.get, set = Ember.set;
 
@@ -20,7 +20,7 @@ export default Ember.Component.extend({
   }.on('init'),
 
   onInit: function () {
-    API.getResourcesList().then(resources => {
+    API.getResources().then(resources => {
       set(this, 'listOfAllResources', resources.map(function (resourceName) {
         return {
           id: resourceName,
@@ -31,7 +31,7 @@ export default Ember.Component.extend({
   }.on('init'),
 
   onResourceNameChange: function () {
-    API.getResourceFieldsList(get(this, 'resource.name')).then(fieldsNames => {
+    API.getResourceFields(get(this, 'resource.name')).then(fieldsNames => {
       var readFields = [];
       var updateFields = [];
 

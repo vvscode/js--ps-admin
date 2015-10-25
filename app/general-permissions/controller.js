@@ -1,14 +1,21 @@
-var get = Ember.get;
+const { get } = Ember;
 
 export default Ember.Controller.extend({
   actions: {
     addGeneralPermission: function () {
-      get(this, 'model').addObject({
-        name: 'New General Permission',
-        id: "" + Date.now(),
+      var modelData = {
+        title: 'New General Permission' +  Date.now(),
         resources: [],
-        routes: [],
-        permissions: []
+        routes: []
+      };
+      return this.API.createGroup(modelData).then((group) => {
+        get(this, 'model').addObject(group);
+      })
+    },
+
+    removeGroup(model) {
+      return this.API.deleteGroup(model.id).then(() => {
+        return get(this, 'model').removeObject(model)
       });
     }
   }
