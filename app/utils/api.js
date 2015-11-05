@@ -114,19 +114,21 @@ export default {
   },
 
   createTemplate(data){
-    return post(BASE_URL + '/templates/', data);
+    return post(BASE_URL + '/templates/', data).then((resp) => {
+      return this.getTemplate(resp.id);
+    });
   },
 
   getTemplate(id){
-    return get(BASE_URL + `/templates/${id}`);
+    return get(BASE_URL + `/templates/${id}/`);
   },
 
   updateTemplate(id, data) {
-    return put(BASE_URL + `/templates/${id}`, data);
+    return put(BASE_URL + `/templates/${id}/`, data);
   },
 
   deleteTemplate(id) {
-    return del(BASE_URL + `/templates/${id}`);
+    return del(BASE_URL + `/templates/${id}/`);
   },
 
   // next one doesn't support more. It leaved only to simplify migration

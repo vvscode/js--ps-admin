@@ -8,7 +8,7 @@
       <div class="small-padding panel-body">
           <ul class="list-group general-permissions">
             {{#each role in model}}
-              {{#link-to 'predefined-roles.edit' role.key class="list-group-item"}}{{role.name}}{{/link-to}}
+              {{#link-to 'predefined-roles.edit' role.id class="list-group-item"}}{{role.title}}{{/link-to}}
             {{/each}}
           </ul>
       </div>

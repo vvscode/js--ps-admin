@@ -2,7 +2,10 @@
     <label class="col-md-6">{{input type="checkbox" checked=role.is_admin }} Is Admin</label>
     <label class="col-md-6">{{input type="checkbox" checked=role.is_all_data}} Is All Data</label>
     <label class="col-md-6">{{input type="checkbox" checked=role.is_sharing disabled="true"}} Is Sharing</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.is_predefined disabled="true"}} Is Predefined</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_predefined disabled="true"}} Is Predefined</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.is_factsheet_reports disabled="true"}} Is Factsheet Report</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_predefined disabled="true"}} Predefined</label>
+    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_subscription disabled="true"}} Subscription</label>
 </div>
 {{#each group in groups}}
     <h3 class="col-md-4">{{group.name}}</h3>

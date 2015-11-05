@@ -1,5 +1,5 @@
 export default Ember.Route.extend({
   model: function (params) {
-    return this.modelFor('predefined-roles').findBy('key', params.template_key);
+    return this.API.getTemplate(params.template_key);
   }
 });

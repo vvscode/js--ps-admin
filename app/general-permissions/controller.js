@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   actions: {
     addGeneralPermission: function () {
       var modelData = {
-        title: 'New General Permission',
+        title: `Permission ${Date.now()}`,
         resources: [],
         routes: []
       };
