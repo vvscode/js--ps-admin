@@ -9,7 +9,11 @@ export default Ember.Controller.extend({
 
   actions: {
     addResource: function () {
-      get(this, 'model').addObject({});
+      get(this, 'model').addObject({
+        name: 'collectable',
+        read: [],
+        update: []
+      });
     }
   }
 });

@@ -16,9 +16,9 @@ export default Ember.Controller.extend({
       resources: data.resources,
       routes: data.routes
     });
-  }
+  },
 
-  //actions: {
+  actions: {
   //  removeGeneralPermission: function (generalPermission) {
   //    var settings = get(this, 'container').lookup('settings:main');
   //    var generalPermissions = get(settings, 'generalPermissions');
@@ -26,21 +26,23 @@ export default Ember.Controller.extend({
   //    this.transitionToRoute('general-permissions');
   //  },
   //
-  //  addPermission: function () {
-  //    var model = get(this, 'model');
-  //    model.permissions.addObject({
-  //      field: 'New Permission',
-  //      key: "" + Date.now(),
-  //      id: "" + Date.now(),
-  //      resources: [],
-  //      routes: [],
-  //      is_custom_field: false,
-  //      for_sharing: false,
-  //      create: 0,
-  //      read: 0,
-  //      update: 0,
-  //      delete: 0
-  //    });
-  //  }
-  //}
+    addPermission: function () {
+      var newPermissionKey = `New_permission_${Date.now()}`;
+      this.API.createPermission({
+        group_id: get(this, 'model.id'),
+        key: newPermissionKey,
+        field: newPermissionKey,
+        for_custom_field: false,
+        for_sharing: false,
+        resources: [],
+        routes: [],
+        create: 0,
+        read: 0,
+        update: 0,
+        delete: 0
+      }).then((permission) => {
+        get(this, 'model.permissions').addObject(permission);
+      });
+    }
+  }
 });

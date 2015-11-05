@@ -50,7 +50,7 @@ export default {
   createGroup(data) {
     return post(BASE_URL + '/groups/', data).then(function(resp) {
       data.id = resp.id;
-      return data;
+      return defer(data);
     });
   },
 
@@ -80,7 +80,10 @@ export default {
   },
 
   createFlagPermission(data){
-    return post(BASE_URL + '/flag_permissions/', data);
+    return post(BASE_URL + '/flag_permissions/', data).then((resp) => {
+      data.id = resp.id;
+      return defer(data);
+    });
   },
 
   getPermissions() {
@@ -88,7 +91,10 @@ export default {
   },
 
   createPermission(data) {
-    return post(BASE_URL + '/permissions/', data);
+    return post(BASE_URL + '/permissions/', data).then((resp) => {
+      data.id = resp.id;
+      return data;
+    })
   },
 
   getPermission(id) {
