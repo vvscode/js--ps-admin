@@ -10,12 +10,13 @@ export default Ember.Controller.extend({
       };
       return this.API.createGroup(modelData).then((group) => {
         get(this, 'model').addObject(group);
-      })
+      });
     },
 
     removeGroup(model) {
       return this.API.deleteGroup(model.id).then(() => {
-        return get(this, 'model').removeObject(model)
+        get(this, 'model').removeObject(model);
+        this.transitionTo('general-permissions');
       });
     }
   }

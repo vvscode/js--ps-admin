@@ -93,7 +93,7 @@ export default {
             { "flag": "is_admin", "resources": [], "routes": [] },
             { "flag": "is_sharing", "resources": [], "routes": [] },
             { "flag": "default", "resources": [], "routes": [] }
-        ])
+        ]);
       }
       return permissions;
     });
@@ -111,7 +111,7 @@ export default {
     return post(BASE_URL + '/permissions/', data).then((resp) => {
       data.id = resp.id;
       return data;
-    })
+    });
   },
 
   getPermission(id) {
