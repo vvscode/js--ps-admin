@@ -1,20 +1,21 @@
 <div class="null-padding col-md-2 panel panel-default">
-    <div class="panel-heading small-padding">Roles
-        <button class="btn btn-default pull-right btn-xs" {{action 'addRoleTemplate'}}>
-            Add <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </div>
+  <div class="panel-heading small-padding">Roles
+    <button class="btn btn-default pull-right btn-xs" {{action 'addRoleTemplate'}}>
+      Add <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
   {{#if model.length}}
-      <div class="small-padding panel-body">
-          <ul class="list-group general-permissions">
-            {{#each role in model}}
-              {{#link-to 'predefined-roles.edit' role.id title=role.title class="list-group-item"}}
-                {{role.title}}
-                <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' role bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-              {{/link-to}}
-            {{/each}}
-          </ul>
-      </div>
+    <div class="small-padding panel-body">
+      <ul class="list-group general-permissions">
+        {{#each role in model}}
+          {{#link-to 'predefined-roles.edit' role.id title=role.title class="list-group-item"}}
+            {{role.title}}
+            <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' role bubbles=false}}><span
+                class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+          {{/link-to}}
+        {{/each}}
+      </ul>
+    </div>
   {{/if}}
 </div>
 {{outlet}}

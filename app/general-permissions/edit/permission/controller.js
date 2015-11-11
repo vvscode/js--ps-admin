@@ -1,7 +1,7 @@
 var get = Ember.get;
 
 export default Ember.Controller.extend({
-  observeChanges: function () {
+  observeChanges: function() {
     Ember.run.debounce(this, this.saveModel, 500);
   }.observes(
     'model.field',

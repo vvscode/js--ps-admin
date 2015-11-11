@@ -17,9 +17,9 @@ export default Ember.Component.extend({
   addOneMode: null,
   addMultipleMode: null,
 
-  onInit: function () {
+  onInit: function() {
     API.getResources().then(resources => {
-      set(this, 'listOfAllResources', resources.map(function (resourceName) {
+      set(this, 'listOfAllResources', resources.map(function(resourceName) {
         return {
           id: resourceName,
           label: Utils.humanize(resourceName).capitalize()
@@ -32,9 +32,9 @@ export default Ember.Component.extend({
     set(this, 'listOfAllLoadedRoutes', listOfAllLoadedRoutes);
   }.on('init'),
 
-  listedRoutesObserver: function () {
+  listedRoutesObserver: function() {
     var routes = get(this, 'routes');
-    set(this, 'listedRoutes', (get(this, 'listOfAllLoadedRoutes') || []).map(function (item) {
+    set(this, 'listedRoutes', (get(this, 'listOfAllLoadedRoutes') || []).map(function(item) {
       return {
         id: item,
         label: item,
@@ -43,17 +43,17 @@ export default Ember.Component.extend({
     }));
   }.observes('listOfAllLoadedRoutes.length').on('init'),
 
-  updateRoutes: function () {
+  updateRoutes: function() {
     var routes = get(this, 'routes');
     var newRoutes = get(this, 'listedRoutes').filterBy('checked', true).mapBy('id');
     routes.clear().addObjects(newRoutes);
   },
 
-  checkedRoutesObserver: function () {
+  checkedRoutesObserver: function() {
     Ember.run.once(this, this.updateRoutes);
   }.observes('listedRoutes.@each.checked'),
 
-  addRoute: function (name, checked) {
+  addRoute: function(name, checked) {
     get(this, 'routes').addObject(name);
     get(this, 'listedRoutes').addObject({
       id: name,
@@ -62,7 +62,7 @@ export default Ember.Component.extend({
     });
   },
 
-  resetAddForms: function () {
+  resetAddForms: function() {
     set(this, 'addOneMode', null);
     set(this, 'oneToAdd', null);
     set(this, 'addMultipleMode', null);
@@ -72,7 +72,7 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    addMultiple: function () {
+    addMultiple: function() {
       API
         .getRoutesList(get(this, 'multipleAddFrom'), get(this, 'multipleAddTo'), get(this, 'addMultipleDepth'))
         .then(routes => {
@@ -82,19 +82,19 @@ export default Ember.Component.extend({
           });
         });
     },
-    addOne: function () {
+    addOne: function() {
       var oneToAdd = get(this, 'oneToAdd');
-      if(!oneToAdd) {
+      if (!oneToAdd) {
         return;
       }
       this.addRoute(oneToAdd, true);
       this.resetAddForms();
     },
-    setMultipleAddMode: function () {
+    setMultipleAddMode: function() {
       set(this, 'addOneMode', false);
       set(this, 'addMultipleMode', true);
     },
-    setOneAddMode: function () {
+    setOneAddMode: function() {
       set(this, 'addMultipleMode', false);
       set(this, 'addOneMode', true);
     }

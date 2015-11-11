@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   isStaticPermissionActive: false,
   activeStaticPermissionName: '',
 
-  resetActivePage: function () {
+  resetActivePage: function() {
     setProperties(this, {
       isGeneralPermissionActive: false,
       isDefaultStaticPermissionActive: false,
@@ -26,12 +26,12 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    openGeneralPermissions: function () {
+    openGeneralPermissions: function() {
       this.resetActivePage();
       set(this, 'isGeneralPermissionActive', true);
     },
 
-    openStaticPermission: function (name) {
+    openStaticPermission: function(name) {
       this.resetActivePage();
       var normilizedName = ("" + name).camelize().capitalize();
       set(this, `is${normilizedName}StaticPermissionActive`, true);
@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
       });
     },
 
-    openPredefinedRoles: function () {
+    openPredefinedRoles: function() {
       this.resetActivePage();
       set(this, 'isPredefinedRolesActive', true);
     }

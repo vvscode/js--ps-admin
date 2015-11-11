@@ -1,57 +1,57 @@
 <div class="panel panel-default">
-    <div class="panel-heading small-padding small-padding">Routes
-        <button class="btn btn-sm btn-default pull-right" {{action 'setMultipleAddMode'}}>Search & Add</button>
-        <button class="btn btn-sm btn-default pull-right" {{action 'setOneAddMode'}}>Add</button>
-    </div>
-    <div class="panel-body small-padding">
-        <div class="form1">
-          {{#if addOneMode}}
-              <div class="form-group">
-                  <div class="col-md-8 small-padding">
-                    {{input class="col-md-12 null-padding" value=oneToAdd placeholder="Route name"}}
-                  </div>
-                  <div class="col-md-4 small-padding text-right">
-                      <button class="btn btn-default btn-sm" {{action 'addOne'}}>Add</button>
-                  </div>
-              </div>
-          {{else}}
-            {{#if addMultipleMode}}
-                <div class="form-group">
-                    <div class="col-md-6 small-padding">
-                      {{view "select"
-                      content=listOfAllResources
-                      optionValuePath="content.id"
-                      optionLabelPath="content.label"
-                      value=multipleAddFrom
-                      prompt="From"
-                      }}
-                    </div>
-                    <div class="col-md-6 small-padding">
-                      {{view "select"
-                      content=listOfAllResources
-                      optionValuePath="content.id"
-                      optionLabelPath="content.label"
-                      value=multipleAddTo
-                      prompt="To"
-                      }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6 small-padding">
-                      {{input value=addMultipleDepth type="number" class="col-md-12 null-padding" placeholder="Depth" min="1"}}
-                    </div>
-                    <div class="col-md-6 small-padding text-right">
-                        <button {{action 'addMultiple'}} class="btn btn-default btn-sm">Search & Add</button>
-                    </div>
-                </div>
-            {{/if}}
-          {{/if}}
+  <div class="panel-heading small-padding small-padding">Routes
+    <button class="btn btn-sm btn-default pull-right" {{action 'setMultipleAddMode'}}>Search & Add</button>
+    <button class="btn btn-sm btn-default pull-right" {{action 'setOneAddMode'}}>Add</button>
+  </div>
+  <div class="panel-body small-padding">
+    <div class="form1">
+      {{#if addOneMode}}
+        <div class="form-group">
+          <div class="col-md-8 small-padding">
+            {{input class="col-md-12 null-padding" value=oneToAdd placeholder="Route name"}}
+          </div>
+          <div class="col-md-4 small-padding text-right">
+            <button class="btn btn-default btn-sm" {{action 'addOne'}}>Add</button>
+          </div>
         </div>
-      {{#if listedRoutes.length}}
-          <div class="list-of-routes">
-            {{#each route in listedRoutes}}
-                <label class="checkbox-label col-md-12">{{input type="checkbox" checked=route.checked}}{{route.label}}</label>
-            {{/each}}
-          </div>{{/if}}
+      {{else}}
+        {{#if addMultipleMode}}
+          <div class="form-group">
+            <div class="col-md-6 small-padding">
+              {{view "select"
+              content=listOfAllResources
+              optionValuePath="content.id"
+              optionLabelPath="content.label"
+              value=multipleAddFrom
+              prompt="From"
+              }}
+            </div>
+            <div class="col-md-6 small-padding">
+              {{view "select"
+              content=listOfAllResources
+              optionValuePath="content.id"
+              optionLabelPath="content.label"
+              value=multipleAddTo
+              prompt="To"
+              }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 small-padding">
+              {{input value=addMultipleDepth type="number" class="col-md-12 null-padding" placeholder="Depth" min="1"}}
+            </div>
+            <div class="col-md-6 small-padding text-right">
+              <button {{action 'addMultiple'}} class="btn btn-default btn-sm">Search & Add</button>
+            </div>
+          </div>
+        {{/if}}
+      {{/if}}
     </div>
+    {{#if listedRoutes.length}}
+      <div class="list-of-routes">
+        {{#each route in listedRoutes}}
+          <label class="checkbox-label col-md-12">{{input type="checkbox" checked=route.checked}}{{route.label}}</label>
+        {{/each}}
+      </div>{{/if}}
+  </div>
 </div>

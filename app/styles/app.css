@@ -1,5 +1,5 @@
 .main-container {
-  margin-top: 75px;
+    margin-top: 75px;
 }
 
 .list-group .list-group-item {
@@ -7,45 +7,44 @@
 }
 
 .list-group .list-group-item.delimiter {
-  padding: 0;
-  border: 2px solid #ddd;
+    padding: 0;
+    border: 2px solid #ddd;
 }
 
 .small-padding {
-  padding-left: 5px;
-  padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 select {
-  width: 90%;
-  box-sizing: border-box;
-  height: 30px;
-  -webkit-appearance: menulist-button;
+    width: 90%;
+    box-sizing: border-box;
+    height: 30px;
+    -webkit-appearance: menulist-button;
 }
 
 .main-content {
-  margin-left: 0;
-  margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .null-padding {
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 input:not([type=checkbox]) {
-// todo: refactor it: better bind styles to class not to tag
-  height: 30 px;
-  box-sizing: border-box;
+/ / todo: refactor it: better bind styles to class not to tag height: 30 px;
+    box-sizing: border-box;
 }
 
 .remove-btn {
-  position: absolute;
-  display: none;
-  right: 0;
-  top: 0
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 0
 }
 
 :hover > .remove-btn {
-  display: block;
+    display: block;
 }

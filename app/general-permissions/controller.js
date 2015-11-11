@@ -2,7 +2,7 @@ const { get } = Ember;
 
 export default Ember.Controller.extend({
   actions: {
-    addGeneralPermission: function () {
+    addGeneralPermission: function() {
       var modelData = {
         title: `Permission ${Date.now()}`,
         resources: [],

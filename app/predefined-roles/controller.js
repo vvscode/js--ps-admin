@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
       var roleTemplate = {
         title: `Template_name${Date.now()}`,
         permissions: [],
-        is_admin : false,
+        is_admin: false,
         is_all_data: false,
         is_sharing: false,
         is_factsheet_reports: false,

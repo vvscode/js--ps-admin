@@ -1,5 +1,5 @@
 export default {
-  humanize: function (str) {
+  humanize: function(str) {
     return ('' + str).split('_').join(' ');
   }
 };

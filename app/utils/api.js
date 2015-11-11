@@ -9,7 +9,7 @@ var defer = function(data) {
   return defer.promise();
 };
 
-var post = function (url, data = '', method = 'POST') {
+var post = function(url, data = '', method = 'POST') {
   return $.ajax({
     url: url,
     data: typeof data === 'string' ? data : JSON.stringify(data),
@@ -22,11 +22,11 @@ var post = function (url, data = '', method = 'POST') {
   });
 };
 
-var put = function (url, data) {
+var put = function(url, data) {
   return post(url, data, 'PUT');
 };
 
-var get = function (url) {
+var get = function(url) {
   return $.get(url);
 };
 
@@ -69,7 +69,9 @@ export default {
   },
 
   getResourceFields(resourceName) {
-    if(!resourceName) { return defer([]); }
+    if (!resourceName) {
+      return defer([]);
+    }
     return get(`${BASE_URL}/resource_fields/${resourceName}/`);
   },
 
@@ -79,12 +81,12 @@ export default {
 
   getFlagPermissions() {
     return get(`${BASE_URL}/flag_permissions/`).then((permissions) => {
-      if(permissions.length === 0) {
+      if (permissions.length === 0) {
         permissions = permissions.concat([
-            { "flag": "is_all_data", "resources": [], "routes": [] },
-            { "flag": "is_admin", "resources": [], "routes": [] },
-            { "flag": "is_sharing", "resources": [], "routes": [] },
-            { "flag": "default", "resources": [], "routes": [] }
+          { "flag": "is_all_data", "resources": [], "routes": [] },
+          { "flag": "is_admin", "resources": [], "routes": [] },
+          { "flag": "is_sharing", "resources": [], "routes": [] },
+          { "flag": "default", "resources": [], "routes": [] }
         ]);
       }
       return permissions;

@@ -1,20 +1,21 @@
 <div class="null-padding col-md-2 panel panel-default">
-    <div class="panel-heading small-padding">Groups
-        <button class="btn btn-default pull-right btn-xs" {{action 'addGeneralPermission'}}>
-            Add <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </div>
+  <div class="panel-heading small-padding">Groups
+    <button class="btn btn-default pull-right btn-xs" {{action 'addGeneralPermission'}}>
+      Add <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
   {{#if model.length}}
-      <div class="small-padding panel-body">
-          <ul class="list-group general-permissions">
-            {{#each group in model}}
-              {{#link-to 'general-permissions.edit' group.id title=group.title class="list-group-item"}}
-                {{group.title}}
-                  <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' group bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-              {{/link-to}}
-            {{/each}}
-          </ul>
-      </div>
+    <div class="small-padding panel-body">
+      <ul class="list-group general-permissions">
+        {{#each group in model}}
+          {{#link-to 'general-permissions.edit' group.id title=group.title class="list-group-item"}}
+            {{group.title}}
+            <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' group bubbles=false}}>
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+          {{/link-to}}
+        {{/each}}
+      </ul>
+    </div>
   {{/if}}
 </div>
 {{outlet}}

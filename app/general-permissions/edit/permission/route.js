@@ -1,7 +1,7 @@
 const { get, setProperties } = Ember;
 
 export default Ember.Route.extend({
-  model: function (params) {
+  model: function(params) {
     const id = parseInt(params.permission_id);
     const model = this.modelFor('general-permissions.edit').permissions.findBy('id', id);
     return this.API.getPermission(id).then((data) => {

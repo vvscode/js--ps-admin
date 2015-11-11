@@ -1,5 +1,5 @@
 export default Ember.Route.extend({
-  model: function () {
+  model: function() {
     return this.modelFor('general-permissions.edit.permission').resources;
   }
 });

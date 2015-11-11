@@ -1,20 +1,20 @@
 <div class="small-padding col-md-2">
-    <div class="panel panel-default">
-        <div class="panel-heading small-padding">Permission properties</div>
-        <div class="small-padding panel-body">
-            <div class="input-group">
-              <label class="col-md-4">Field:</label>{{input value=model.field class="col-md-8" required="true"}}<br/>
-                <label class="col-md-4">Key:</label>{{input value=model.key class="col-md-8" required="true"}}<br/>
-                <label>{{input type="checkbox" checked=model.for_custom_field}} Is custom field </label><br/>
-                <label>{{input type="checkbox" checked=model.for_sharing}} Show in virtual gallery</label>
-            </div>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading small-padding">Permission properties</div>
+    <div class="small-padding panel-body">
+      <div class="input-group">
+        <label class="col-md-4">Field:</label>{{input value=model.field class="col-md-8" required="true"}}<br/>
+        <label class="col-md-4">Key:</label>{{input value=model.key class="col-md-8" required="true"}}<br/>
+        <label>{{input type="checkbox" checked=model.for_custom_field}} Is custom field </label><br/>
+        <label>{{input type="checkbox" checked=model.for_sharing}} Show in virtual gallery</label>
+      </div>
     </div>
-    <ul class="list-group general-permissions">
-      {{#link-to 'general-permissions.edit.permission.ui-checkboxes'  class="list-group-item"}}UI Checkboxes{{/link-to}}
-      {{#link-to 'general-permissions.edit.permission.resources' class="list-group-item"}}Resources{{/link-to}}
-      {{#link-to 'general-permissions.edit.permission.routes' class="list-group-item"}}Routes{{/link-to}}
-    </ul>
+  </div>
+  <ul class="list-group general-permissions">
+    {{#link-to 'general-permissions.edit.permission.ui-checkboxes'  class="list-group-item"}}UI Checkboxes{{/link-to}}
+    {{#link-to 'general-permissions.edit.permission.resources' class="list-group-item"}}Resources{{/link-to}}
+    {{#link-to 'general-permissions.edit.permission.routes' class="list-group-item"}}Routes{{/link-to}}
+  </ul>
 </div>
 <div class="small-padding col-md-4">
   {{outlet}}

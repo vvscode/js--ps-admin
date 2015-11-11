@@ -1,5 +1,8 @@
-<label>List of resources:</label><ul>
+<label>List of resources:</label>
+<ul>
   {{#each resourceList as |resource|}}
-    <li><a href="./#resource-{{resource.name}}" {{action 'goToResource' resource.name bubbles=false}}>{{resource.name}}</a></li>
+    <li><a
+        href="./#resource-{{resource.name}}" {{action 'goToResource' resource.name bubbles=false}}>{{resource.name}}</a>
+    </li>
   {{/each}}
 </ul>

@@ -1,38 +1,49 @@
 <div class="form-group">
-    <label class="col-md-6">{{input type="checkbox" checked=role.is_admin }} Is Admin</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.is_all_data}} Is All Data</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.is_sharing disabled="true"}} Is Sharing</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_predefined disabled="true"}} Is Predefined</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.is_factsheet_reports disabled="true"}} Is Factsheet Report</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_predefined disabled="true"}} Predefined</label>
-    <label class="col-md-6">{{input type="checkbox" checked=role.use_as_subscription disabled="true"}} Subscription</label>
+  <ul class="col-md-6">
+    <label class="col-md-12">{{input type="checkbox" checked=role.is_admin }} Is Admin</label>
+    <label class="col-md-12">{{input type="checkbox" checked=role.is_all_data}} Is All Data</label>
+    <label class="col-md-12">{{input type="checkbox" checked=role.is_sharing}} Is Sharing</label>
+    <label class="col-md-12">{{input type="checkbox" checked=role.is_factsheet_reports}} Is Factsheet Report</label>
+  </ul>
+  <ul class="col-md-6">
+    <label class="col-md-12">{{input type="checkbox" checked=role.use_as_predefined}}Use as Predefined</label>
+    <label class="col-md-12">{{input type="checkbox" checked=role.use_as_subscription}}Use as Subscription</label>
+  </ul>
+
 </div>
 {{#each group in groups}}
-    <h3 class="col-md-4">{{group.name}}</h3>
+  <div class="col-md-12">
+    <h4 class="col-md-4">{{group.name}}</h4>
     <h4 class="col-md-2">Create</h4>
     <h4 class="col-md-2">Read</h4>
     <h4 class="col-md-2">Update</h4>
     <h4 class="col-md-2">Delete</h4>
-    {{#each permission in group.permissions}}
-        <div class="col-md-12">
+  </div>
+
+  {{#each permission in group.permissions}}
+    <div class="col-md-12">
             <span class="col-md-4">
               {{permission.field}}
             </span>
 
-            <div class="col-md-2">
-              {{input type="checkbox" checked=permission.create disabled=permission.create_forced }}
-            </div>
-            <div class="col-md-2">
-              {{input type="checkbox" checked=permission.read disabled=permission.read_forced }}
-            </div>
-            <div class="col-md-2">
-              {{input type="checkbox" checked=permission.update disabled=permission.update_forced }}
-            </div>
-            <div class="col-md-2">
-              {{input type="checkbox" checked=permission.delete disabled=permission.delete_forced }}
-            </div>
-        </div>
-    {{/each}}
+      <div class="col-md-2">
+        {{#if permission.create_forced}}
+
+
+        {{/if}}
+        {{input type="checkbox" checked=permission.create disabled=permission.create_forced }}
+      </div>
+      <div class="col-md-2">
+        {{input type="checkbox" checked=permission.read disabled=permission.read_forced }}
+      </div>
+      <div class="col-md-2">
+        {{input type="checkbox" checked=permission.update disabled=permission.update_forced }}
+      </div>
+      <div class="col-md-2">
+        {{input type="checkbox" checked=permission.delete disabled=permission.delete_forced }}
+      </div>
+    </div>
+  {{/each}}
 {{/each}}
 
 

@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   },
 
   sendGroupToServer() {
-    var data  = get(this, 'model');
+    var data = get(this, 'model');
     return this.API.updateGroup(data.id, {
       title: data.title,
       resources: data.resources,

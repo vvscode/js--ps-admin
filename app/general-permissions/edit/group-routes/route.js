@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     set(this, 'group', this.modelFor('general-permissions.edit'));
   },
 
-  model: function () {
+  model: function() {
     return get(this, 'group.routes');
   },
 

@@ -1,17 +1,17 @@
 <div class="panel panel-default">
-    <div class="panel-heading small-padding">
-        Resources
-        <button class="btn btn-default pull-right btn-xs" {{action 'addResource'}}>
-            Add <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </div>
+  <div class="panel-heading small-padding">
+    Resources
+    <button class="btn btn-default pull-right btn-xs" {{action 'addResource'}}>
+      Add <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
   {{#if model.length}}
-      <div class="panel-body">
-        {{list-of-resources resourceList=model}}
-        {{#each resource in model}}
-          {{resource-component resource=resource resourceList=model}}
-            <hr/>
-        {{/each}}
-      </div>
+    <div class="panel-body">
+      {{list-of-resources resourceList=model}}
+      {{#each resource in model}}
+        {{resource-component resource=resource resourceList=model}}
+        <hr/>
+      {{/each}}
+    </div>
   {{/if}}
 </div>

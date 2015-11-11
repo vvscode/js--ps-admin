@@ -4,15 +4,19 @@
   optionValuePath="content.id"
   optionLabelPath="content.label"
   value=resource.name
-  }}<button type="button" class="btn btn-default btn-xs" {{action 'removeResource' resource bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  }}
+  <button type="button" class="btn btn-default btn-xs" {{action 'removeResource' resource bubbles=false}}><span
+      class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 
   {{#if readFields.length}}<h4>Read</h4>
+
     <div class="read-fields clearfix">
       {{#each item in readFields}}
         <label class="col-md-6">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>
       {{/each}}
     </div>{{/if}}
   {{#if updateFields.length}}<h4>Update</h4>
+
     <div class="update-fields clearfix">
       {{#each item in updateFields}}
         <label class="col-md-6">{{input type="checkbox" checked=item.checked}}{{item.label}}</label>

@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   }.observes('model.@each.name', 'model.@each.read.length', 'model.@each.update.length'),
 
   actions: {
-    addResource: function () {
+    addResource: function() {
       this.API.getDefaultResource()
         .then((defaultPersmission) => {
           get(this, 'model').addObject({

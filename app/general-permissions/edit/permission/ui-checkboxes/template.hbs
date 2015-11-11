@@ -1,46 +1,45 @@
 <div class="panel panel-default">
-    <div class="panel-heading small-padding">UI Checkboxes for  "{{model.field}}"
+  <div class="panel-heading small-padding">UI Checkboxes for "{{model.field}}"</div>
+  <div class="panel-body small-padding">
+    <div class="col-md-12 small-padding">
+      <label class="col-md-5 small-padding">Add</label>
+      {{view "select"
+      content=uiSelectOptions
+      optionValuePath="content.id"
+      optionLabelPath="content.label"
+      value=model.create
+      class="col-md-7"
+      }}
     </div>
-    <div class="panel-body small-padding">
-        <div class="col-md-12 small-padding">
-            <label class="col-md-5 small-padding">View</label>
-          {{view "select"
-          content=uiSelectOptions
-          optionValuePath="content.id"
-          optionLabelPath="content.label"
-          value=model.read
-          class="col-md-7"
-          }}
-        </div>
-        <div class="col-md-12 small-padding">
-            <label class="col-md-5 small-padding">Add</label>
-          {{view "select"
-          content=uiSelectOptions
-          optionValuePath="content.id"
-          optionLabelPath="content.label"
-          value=model.create
-          class="col-md-7"
-          }}
-        </div>
-        <div class="col-md-12 small-padding">
-            <label class="col-md-5 small-padding">Edit</label>
-          {{view "select"
-          content=uiSelectOptions
-          optionValuePath="content.id"
-          optionLabelPath="content.label"
-          value=model.update
-          class="col-md-7"
-          }}
-        </div>
-        <div class="col-md-12 small-padding">
-            <label class="col-md-5 small-padding">Delete</label>
-          {{view "select"
-          content=uiSelectOptions
-          optionValuePath="content.id"
-          optionLabelPath="content.label"
-          value=model.delete
-          class="col-md-7"
-          }}
-        </div>
+    <div class="col-md-12 small-padding">
+      <label class="col-md-5 small-padding">View</label>
+      {{view "select"
+      content=uiSelectOptions
+      optionValuePath="content.id"
+      optionLabelPath="content.label"
+      value=model.read
+      class="col-md-7"
+      }}
     </div>
+    <div class="col-md-12 small-padding">
+      <label class="col-md-5 small-padding">Edit</label>
+      {{view "select"
+      content=uiSelectOptions
+      optionValuePath="content.id"
+      optionLabelPath="content.label"
+      value=model.update
+      class="col-md-7"
+      }}
+    </div>
+    <div class="col-md-12 small-padding">
+      <label class="col-md-5 small-padding">Delete</label>
+      {{view "select"
+      content=uiSelectOptions
+      optionValuePath="content.id"
+      optionLabelPath="content.label"
+      value=model.delete
+      class="col-md-7"
+      }}
+    </div>
+  </div>
 </div>

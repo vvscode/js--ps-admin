@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   groups: function() {
     var rolePermissions = get(this, 'role.permissions') || [];
     var groupNames = rolePermissions.mapBy('group').uniq();
-    return groupNames.map( (groupName) => {
+    return groupNames.map((groupName) => {
       return {
         name: groupName,
         permissions: rolePermissions.filterBy('group', groupName)

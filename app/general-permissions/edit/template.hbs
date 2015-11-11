@@ -1,38 +1,40 @@
 <div class="small-padding col-md-2">
-    <div class="panel panel-default">
-        <div class="panel-heading small-padding">Group properties
-            <button class="btn btn-default pull-right btn-xs"
-                    title="Remove group" {{action 'removeGeneralPermission' model}}>
-                Remove <span class="glyphicon glyphicon-remove"></span>
-            </button>
-        </div>
-        <div class="small-padding panel-body">
-          {{input value=model.title class="col-md-12"}}
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading small-padding">Group properties
+      <button class="btn btn-default pull-right btn-xs"
+              title="Remove group" {{action 'removeGeneralPermission' model}}>
+        Remove <span class="glyphicon glyphicon-remove"></span>
+      </button>
     </div>
-    <ul class="list-group general-permissions">
-      {{#link-to 'general-permissions.edit.group-resources'  class="list-group-item"}}Group Resources{{/link-to}}
-      {{#link-to 'general-permissions.edit.group-routes' class="list-group-item"}}Group Routes{{/link-to}}
-    </ul>
-    <div class="panel panel-default">
-        <div class="panel-heading small-padding">Permissions
-            <button class="btn btn-default pull-right btn-xs" {{action 'addPermission'}}>
-                Add <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </div>
-      {{#if model.permissions.length}}
-          <div class="small-padding panel-body">
-              <ul class="list-group general-permissions">
-                {{#each permission in model.permissions}}
-                  {{#link-to 'general-permissions.edit.permission' model.id permission.id  title=permission.field class="list-group-item"}}
-                    {{permission.field}}
-                    <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' permission bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                  {{/link-to}}
-                {{/each}}
-              </ul>
-          </div>
-      {{/if}}
+    <div class="small-padding panel-body">
+      {{input value=model.title class="col-md-12"}}
     </div>
+  </div>
+  <ul class="list-group general-permissions">
+    {{#link-to 'general-permissions.edit.group-resources'  class="list-group-item"}}Group Resources{{/link-to}}
+    {{#link-to 'general-permissions.edit.group-routes' class="list-group-item"}}Group Routes{{/link-to}}
+  </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading small-padding">Permissions
+      <button class="btn btn-default pull-right btn-xs" {{action 'addPermission'}}>
+        Add <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+    {{#if model.permissions.length}}
+      <div class="small-padding panel-body">
+        <ul class="list-group general-permissions">
+          {{#each permission in model.permissions}}
+            {{#link-to 'general-permissions.edit.permission' model.id permission.id  title=permission.field class="list-group-item"}}
+              {{permission.field}}
+              <button type="button"
+                      class="btn btn-default btn-xs remove-btn" {{action 'remove' permission bubbles=false}}><span
+                  class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            {{/link-to}}
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+  </div>
 </div>
 {{outlet}}
 

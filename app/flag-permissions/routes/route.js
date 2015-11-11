@@ -1,5 +1,5 @@
 export default Ember.Route.extend({
-  model: function () {
+  model: function() {
     return this.modelFor('flag-permissions').routes;
   }
 });
