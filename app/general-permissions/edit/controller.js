@@ -19,14 +19,7 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-  //  removeGeneralPermission: function (generalPermission) {
-  //    var settings = get(this, 'container').lookup('settings:main');
-  //    var generalPermissions = get(settings, 'generalPermissions');
-  //    generalPermissions.removeObject(generalPermission);
-  //    this.transitionToRoute('general-permissions');
-  //  },
-  //
-    addPermission: function () {
+    addPermission() {
       var newPermissionKey = `New_permission_${Date.now()}`;
       this.API.createPermission({
         group_id: get(this, 'model.id'),
@@ -43,6 +36,13 @@ export default Ember.Controller.extend({
       }).then((permission) => {
         get(this, 'model.permissions').addObject(permission);
       });
+    },
+
+    remove(permission) {
+      get(this, 'model.permissions').removeObject(permission);
+      this.API.deletePermission(get(permission, 'id')).always(() => {
+        this.transitionTo('general-permissions.edit', get(this, 'model.id'));
+      })
     }
   }
 });

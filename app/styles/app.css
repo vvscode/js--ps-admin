@@ -2,6 +2,10 @@
   margin-top: 75px;
 }
 
+.list-group .list-group-item {
+    overflow: hidden;
+}
+
 .list-group .list-group-item.delimiter {
   padding: 0;
   border: 2px solid #ddd;
@@ -30,6 +34,18 @@ select {
 }
 
 input:not([type=checkbox]) {
-/ / todo: refactor it: better bind styles to class not to tag height: 30 px;
+// todo: refactor it: better bind styles to class not to tag
+  height: 30 px;
   box-sizing: border-box;
+}
+
+.remove-btn {
+  position: absolute;
+  display: none;
+  right: 0;
+  top: 0
+}
+
+:hover > .remove-btn {
+  display: block;
 }

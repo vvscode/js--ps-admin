@@ -8,9 +8,9 @@
       <div class="small-padding panel-body">
           <ul class="list-group general-permissions">
             {{#each group in model}}
-              {{#link-to 'general-permissions.edit' group.id class="list-group-item"}}
+              {{#link-to 'general-permissions.edit' group.id title=group.title class="list-group-item"}}
                 {{group.title}}
-                  <button type="button" class="remove-group btn btn-default btn-xs" {{action 'removeGroup' group bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                  <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' group bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               {{/link-to}}
             {{/each}}
           </ul>

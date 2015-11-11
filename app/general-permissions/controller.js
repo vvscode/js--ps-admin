@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
       });
     },
 
-    removeGroup(model) {
+    remove(model) {
       return this.API.deleteGroup(model.id).then(() => {
         get(this, 'model').removeObject(model);
         this.transitionTo('general-permissions');
