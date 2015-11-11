@@ -1,9 +1,6 @@
 //import config from './../config/environment';
-let cache = {};
+const CACHE = {};
 const $ = Ember.$;
-const USE_MOCKS = false;
-const storageKey = 'storageKey_for_old_api_mocks';
-
 const BASE_URL = '';
 
 var defer = function(data) {
@@ -26,7 +23,7 @@ var post = function (url, data = '', method = 'POST') {
 };
 
 var put = function (url, data) {
-  return post(url, data, 'PUT`);
+  return post(url, data, 'PUT');
 };
 
 var del = function (url) {
@@ -37,7 +34,6 @@ var get = function (url) {
   return $.get(url);
 };
 
-const CACHE = {};
 
 export default {
   getGroups() {
