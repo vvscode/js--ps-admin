@@ -111,7 +111,7 @@ export default {
   },
 
   deletePermission(id) {
-    return post(`${BASE_URL}/permissions/${id}/`);
+    return post(`${BASE_URL}/permissions/${id}/delete/`);
   },
 
   getTemplates() {
