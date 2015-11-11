@@ -23,7 +23,7 @@ Router.map(function () {
 
     });
   });
-  this.resource('static-permissions', {path: 'static-permissions/:type_name'}, function () {
+  this.resource('flag-permissions', {path: 'flag-permissions/:type_name'}, function () {
     this.route('resources', {path: '/resources'});
     this.route('routes', {path: '/routes'});
   });

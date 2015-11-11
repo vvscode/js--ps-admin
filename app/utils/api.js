@@ -5,7 +5,6 @@ const USE_MOCKS = false;
 const storageKey = 'storageKey_for_old_api_mocks';
 
 const BASE_URL = '';
-//const BASE_URL = 'http://10.0.0.41:5550';
 
 var defer = function(data) {
   var defer = $.Deferred();
@@ -38,6 +37,8 @@ var get = function (url) {
   return $.get(url);
 };
 
+const CACHE = {};
+
 export default {
   getGroups() {
     return get(BASE_URL + '/groups/');
@@ -63,7 +64,16 @@ export default {
   },
 
   getResources() {
-    return get(BASE_URL + '/resources/');
+    CACHE.resources = CACHE.resources || get(BASE_URL + '/resources/').then((resources) => {
+        return resources.sort();
+      });
+    return CACHE.resources;
+  },
+
+  getDefaultResource() {
+    return this.getResources().then((resources)=> {
+      return resources[0];
+    });
   },
 
   getResourceFields(resourceName) {
@@ -76,14 +86,21 @@ export default {
   },
 
   getFlagPermissions() {
-    return get(BASE_URL + '/flag_permissions/');
+    return get(BASE_URL + '/flag_permissions/').then((permissions) => {
+      if(permissions.length === 0) {
+        permissions = permissions.concat([
+            { "flag": "is_all_data", "resources": [], "routes": [] },
+            { "flag": "is_admin", "resources": [], "routes": [] },
+            { "flag": "is_sharing", "resources": [], "routes": [] },
+            { "flag": "default", "resources": [], "routes": [] }
+        ])
+      }
+      return permissions;
+    });
   },
 
-  createFlagPermission(data){
-    return post(BASE_URL + '/flag_permissions/', data).then((resp) => {
-      data.id = resp.id;
-      return defer(data);
-    });
+  updateFlagPermissions(data) {
+    return post(BASE_URL + '/flag_permissions/', data);
   },
 
   getPermissions() {

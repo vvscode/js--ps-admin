@@ -1,10 +1,10 @@
-var get = Ember.get;
+const { get } = Ember;
 
 export default Ember.Controller.extend({
-  groupController: Ember.inject.controller('general-permissions/edit'),
+  flagController: Ember.inject.controller('flag-permissions'),
 
   onModelSizeChange: function() {
-    get(this, 'groupController').saveGroup();
+    get(this, 'flagController').saveFlagPermissions();
   }.observes('model.@each.name', 'model.@each.read.length', 'model.@each.update.length'),
 
   actions: {
