@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
       get(this, 'model.permissions').removeObject(permission);
       this.API.deletePermission(get(permission, 'id')).always(() => {
         this.transitionTo('general-permissions.edit', get(this, 'model.id'));
-      })
+      });
     }
   }
 });

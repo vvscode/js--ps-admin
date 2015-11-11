@@ -11,11 +11,5 @@ export default Ember.Controller.extend({
 
   sendPermissionsToServer() {
     return this.API.updateFlagPermissions(get(this, 'flagPermissions'));
-  },
-
-  actions: {
-    removeResource() {
-      debugger;
-    }
   }
 });
