@@ -7,6 +7,7 @@
     </div>
   {{#if model.length}}
       <div class="panel-body">
+        {{list-of-resources resourceList=model}}
         {{#each resource in model}}
           {{resource-component resource=resource resourceList=model}}
             <hr/>
