@@ -26,10 +26,6 @@ var put = function (url, data) {
   return post(url, data, 'PUT');
 };
 
-var del = function (url) {
-  return post(url, {}, 'DELETE');
-};
-
 var get = function (url) {
   return $.get(url);
 };
@@ -137,6 +133,6 @@ export default {
   },
 
   deleteTemplate(id) {
-    return del(`${BASE_URL}/templates/${id}/`);
+    return post(`${BASE_URL}/templates/${id}/delete/`);
   }
 };

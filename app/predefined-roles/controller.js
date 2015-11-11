@@ -1,13 +1,8 @@
-var get = Ember.get;
+const { get } = Ember;
 
 export default Ember.Controller.extend({
-
-  getPermissionsList: function() {
-    return [];
-  },
-
   actions: {
-    addRoleTemplate: function(){
+    addRoleTemplate(){
       var model = get(this, 'model');
       var roleTemplate = {
         title: `Template_name${Date.now()}`,
@@ -21,6 +16,13 @@ export default Ember.Controller.extend({
       };
       this.API.createTemplate(roleTemplate).then((data) => {
         model.addObject(data);
+      });
+    },
+
+    remove(role) {
+      this.API.deleteTemplate(get(role, 'id')).always(() => {
+        get(this, 'model').removeObject(role);
+        this.transitionTo('predefined-roles');
       });
     }
   }

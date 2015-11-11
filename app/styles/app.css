@@ -17,7 +17,7 @@
 }
 
 select {
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   height: 30px;
   -webkit-appearance: menulist-button;

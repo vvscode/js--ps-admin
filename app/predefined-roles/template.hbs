@@ -8,7 +8,10 @@
       <div class="small-padding panel-body">
           <ul class="list-group general-permissions">
             {{#each role in model}}
-              {{#link-to 'predefined-roles.edit' role.id class="list-group-item"}}{{role.title}}{{/link-to}}
+              {{#link-to 'predefined-roles.edit' role.id title=role.title class="list-group-item"}}
+                {{role.title}}
+                <button type="button" class="btn btn-default btn-xs remove-btn" {{action 'remove' role bubbles=false}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              {{/link-to}}
             {{/each}}
           </ul>
       </div>

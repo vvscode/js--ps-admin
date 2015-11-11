@@ -4,6 +4,8 @@ import API from '../../utils/api';
 var get = Ember.get, set = Ember.set;
 
 export default Ember.Component.extend({
+  classNames: ['resource-component'],
+
   resource: null,
   resourceList: null,
   listOfAllResources: null,
