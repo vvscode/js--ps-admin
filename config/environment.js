@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ps-admin',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/permissions_manager/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -37,7 +37,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
