@@ -25,22 +25,17 @@
             <span class="col-md-4">
               {{permission.field}}
             </span>
-
       <div class="col-md-2">
-        {{#if permission.create_forced}}
-
-
-        {{/if}}
-        {{input type="checkbox" checked=permission.create disabled=permission.create_forced }}
+        {{permissions-settings-item permission=permission action='create'}}
       </div>
       <div class="col-md-2">
-        {{input type="checkbox" checked=permission.read disabled=permission.read_forced }}
+        {{permissions-settings-item permission=permission action='read'}}
       </div>
       <div class="col-md-2">
-        {{input type="checkbox" checked=permission.update disabled=permission.update_forced }}
+        {{permissions-settings-item permission=permission action='update'}}
       </div>
       <div class="col-md-2">
-        {{input type="checkbox" checked=permission.delete disabled=permission.delete_forced }}
+        {{permissions-settings-item permission=permission action='delete'}}
       </div>
     </div>
   {{/each}}
