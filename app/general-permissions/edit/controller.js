@@ -1,6 +1,8 @@
-var get = Ember.get;
+const { get, inject: { controller } } = Ember;
 
 export default Ember.Controller.extend({
+  generalPermissionsController: controller('general-permissions'),
+
   onModelChange: function() {
     this.saveGroup();
   }.observes('model.title', 'model.routes.length', 'model.resources.length'),
@@ -43,6 +45,10 @@ export default Ember.Controller.extend({
       this.API.deletePermission(get(permission, 'id')).always(() => {
         this.transitionTo('general-permissions.edit', get(this, 'model.id'));
       });
+    },
+
+    removeGeneralPermissionGroup(group) {
+      get(this, 'generalPermissionsController').send('remove', group);
     }
   }
 });

@@ -18,6 +18,10 @@ export default Ember.Controller.extend({
         get(this, 'model').removeObject(model);
         this.transitionTo('general-permissions');
       });
+    },
+
+    removeGeneralPermissionGroup(model) {
+      this.send('remove', model);
     }
   }
 });
