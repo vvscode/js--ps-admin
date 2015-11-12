@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   action: null,
 
   checked: computed('permission', 'action', {
-    get(key) {
+    get() {
       return get(get(this, 'permission'), get(this, 'action'));
     },
     set(key, value){
