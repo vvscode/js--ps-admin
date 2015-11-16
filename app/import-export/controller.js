@@ -7,7 +7,10 @@ export default Ember.Controller.extend({
   actions: {
     uploadFile() {
       const url = '/dumps/';
-      const uploader = EmberUploader.Uploader.create({ url });
+      const uploader = EmberUploader.Uploader.create({
+        url,
+        paramName: 'filename'
+      });
       const file = get(this, 'file');
       if (file) {
         return uploader.upload(file).then(() => {
