@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
       const uploader = EmberUploader.Uploader.create({ url });
       const file = get(this, 'file');
       if (file) {
-        return uploader.upload(file).then((response) => {
+        return uploader.upload(file).then(() => {
           set(this, 'file', null);
         });
       }
