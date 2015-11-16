@@ -48,7 +48,7 @@ export default {
   },
 
   deleteGroup(id) {
-    return post(`${BASE_URL}/groups/${id}//delete/`);
+    return post(`${BASE_URL}/groups/${id}/delete/`);
   },
 
   updateGroup(id, data) {
@@ -76,7 +76,7 @@ export default {
   },
 
   getRoutesList(from, to, depth) {
-    return get(`${BASE_URL}/make_routes//${from}//${to}//${depth}/`);
+    return get(`${BASE_URL}/make_routes/${from}/${to}/${depth}/`);
   },
 
   getFlagPermissions() {

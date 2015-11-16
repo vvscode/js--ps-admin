@@ -1,0 +1,33 @@
+<div class="form-horizontal">
+  <div class="form-group col-md-8">
+    <div class="control-group">
+      <div class="controls col-md-2">
+        <label class="control-label">Export</label>
+      </div>
+      <div class="controls col-md-6"></div>
+      <div class="controls col-md-4">
+        <a class="btn btn-success" href="/dumps/" target="_blank">Save file</a>
+      </div>
+    </div>
+
+  </div>
+  <p></p>
+  <div class="form-group col-md-8">
+
+    <div class="control-group">
+      <div class="controls col-md-2">
+        <label class="control-label">Import</label>
+      </div>
+      <div class="controls col-md-6">
+        <input type="file"class="form-control"  {{action 'onFileSelect' on='change' target='view'}}>
+        <p class="help-block">select file to upload</p>
+      </div>
+      <div class="controls col-md-4">
+        {{#if file}}
+          <button {{action 'uploadFile'}} class="btn btn-success">Upload file</button>
+        {{/if}}
+      </div>
+    </div>
+
+  </div>
+</div>

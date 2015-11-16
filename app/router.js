@@ -27,6 +27,7 @@ Router.map(function() {
     this.route('resources', { path: '/resources' });
     this.route('routes', { path: '/routes' });
   });
+  this.route('import-export');
 });
 
 export default Router;
